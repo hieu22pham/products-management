@@ -1,0 +1,97 @@
+.header{
+  margin-top: 20px;
+}
+
+.header .inner-logo img{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.header .inner-menu{
+ 
+
+}
+
+.header .inner-menu ul{
+  display: flex;
+  margin-top: 10px;
+  list-style: none;
+}
+
+.header .inner-menu ul li{
+  margin-right: 40px;
+}
+
+.header .inner-menu ul li a{
+  text-decoration: none;
+}
+
+.footer{
+  width: 100vw;
+  height: 50px;
+  background-color: black;
+  /* position: relative; */
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+/* .footer p{
+  position: absolute;
+  color: #fff;
+  top: 10px;
+  left: 45%;
+} */
+.product-item {
+  position: relative;
+  height: 340px;
+  width: 250px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  border: 1px black solid;
+}
+
+
+
+.product-item .inner-image{
+  position: absolute;
+  left: 20px;
+  width: 200px;
+}
+
+.product-item .inner-image img{
+  width: 200px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.all-content{
+  position: absolute;
+  left: 20px;
+}
+
+.product-item .inner-title{
+  /* position: absolute; */
+  font-size: 17px;
+  margin-top: 190px;
+  color: blue;
+}
+
+.product-item .inner-price-new{
+  margin-top: 10px;
+  left: 30px;
+  color: green;
+}
+
+.product-item .inner-price-old{
+  margin-top: 10px;
+  color: red;
+  text-decoration: line-through;
+}
+
+.product-item .inner-discount{
+  margin-top: 10px;
+}
+
+

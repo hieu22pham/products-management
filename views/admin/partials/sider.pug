@@ -1,0 +1,12 @@
+.container-fluid
+  .row
+    //- Sidebar
+    nav#sidebar.sider.bg-dark.text-white
+      .inner-menu
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link.active(href=`${prefixAdmin}/dashboard`) Tổng quan
+          li.nav-item
+            a.nav-link(href=`${prefixAdmin}/products`) Sản phẩm
+          li.nav-item
+            a.nav-link(href=`${prefixAdmin}/products/bin`) Thùng rác
