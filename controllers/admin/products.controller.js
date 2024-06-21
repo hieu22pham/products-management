@@ -168,6 +168,24 @@ module.exports.editPatch = async (req, res) => {
   res.redirect("back")
 }
 
+module.exports.detail = async (req, res) => {
+  const id = req.params.id
+  try {
+    const find = {
+      deleted: false,
+      _id: req.params.id
+    }
+
+    const product = await Product.findOne(find)
+
+    res.render("admin/pages/products/detail", {
+      pageTitle: product.title,
+      product: product
+    })
+  } catch (error) {
+    res.redirect(`${systemConfig.prefixAdmin}/products`)
+  }
+}
 
 module.exports.productsBin = async (req, res) => {
   const filterStatus = filterStatusHelper(req.query)

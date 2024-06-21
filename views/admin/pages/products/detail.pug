@@ -1,0 +1,35 @@
+extend ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block main
+  if(product.title)
+    h3 #{product.title}
+  if(product.price)
+    div() Giá: <b>#{product.price}$</b>
+  if(product.discountPercentage)
+    div() Giảm giá: <b>#{product.discountPercentage}</b>
+  if(product.discountPercentage)
+    div() Giảm giá: <b>#{product.discountPercentage}</b>
+  if(product.stock)
+    div() Còn lại: <b>#{product.stock}</b>
+  if(product.thumbnail)
+    div() 
+      img(src=product.thumbnail style="width: 150px")
+
+  if(product.status)
+    div()
+      span Trạng thái: 
+      if(product.status === "active")
+        span(class="badge bg-success") Hoạt động
+      else 
+        span(class="badge bg-warning") Dừng hoạt động
+
+  if(product.position)
+    div() Vị trí: <b>#{product.position}</b>
+  if(product.description)
+    p #{product.description}
+  
+    a(
+      href=`${prefixAdmin}/products/edit/${product.id}`
+      class="btn btn-warning btn-sm"
+      ) Sửa 

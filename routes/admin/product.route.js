@@ -29,5 +29,7 @@ router.patch('/bin/change-multi', controller.changeMultiBin)
 router.delete('/bin/delete/:id', controller.deleteItemBin)
 router.delete('/bin/restore/:id', controller.restoreItem)
 
+router.get('/detail/:id', controller.detail)
+
 
 module.exports = router;
