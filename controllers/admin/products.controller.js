@@ -153,14 +153,14 @@ module.exports.editPatch = async (req, res) => {
   req.body.discountPercentage = parseInt(req.body.discountPercentage)
   req.body.stock = parseInt(req.body.stock)
 
-  if (req.file) {
-    req.body.thumbnail = `/uploads/${req.file.filename}`
-  }
-
+  console.log(req.body)
   try {
     await Product.updateOne({ _id: id }, req.body)
-  } catch (err) {
+    await Product.save()
 
+  } catch (err) {
+    console.error('Error updating product:', err);
+    res.status(500).send('Internal Server Error');
   }
 
   res.redirect("back")
