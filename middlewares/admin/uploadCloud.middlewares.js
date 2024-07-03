@@ -35,6 +35,6 @@ module.exports.upload = (req, res, next) => {
     upload(req);
   }
   else {
-    console.log("Thiếu")
+    next();
   }
 }
