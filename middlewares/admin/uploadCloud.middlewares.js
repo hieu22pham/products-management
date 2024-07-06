@@ -2,9 +2,13 @@ const cloudinary = require('cloudinary').v2
 const streamifier = require('streamifier')
 
 cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_KEY,
-  api_secret: process.env.CLOUD_SECRET
+  // cloud_name: process.env.CLOUD_NAME,
+  // api_key: process.env.CLOUD_KEY,
+  // api_secret: process.env.CLOUD_SECRET
+
+  cloud_name: 'dw0niuzdf',
+  api_key: '862679367621591',
+  api_secret: 'wO63g36BhGNYjbvrhtfbfbwxXz8'
 });
 
 module.exports.upload = (req, res, next) => {
@@ -26,10 +30,15 @@ module.exports.upload = (req, res, next) => {
     };
 
     async function upload(req) {
-      let result = await streamUpload(req);
-      req.body[req.file.fieldname] = result.url
-      console.log(result);
-      next();
+      try {
+        let result = await streamUpload(req);
+        req.body[req.file.fieldname] = result.url;
+        console.log('Upload result:', result);
+        next();
+      } catch (error) {
+        console.error('Error uploading to Cloudinary:', error);
+        res.status(500).send(`Error uploading file: ${error.message}`);
+      }
     }
 
     upload(req);

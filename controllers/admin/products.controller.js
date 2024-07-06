@@ -33,7 +33,20 @@ module.exports.index = async (req, res) => {
   console.log(objectPagination.currentPage)
   // end pagination
 
-  const products = await Products.find(find).sort({ position: "desc" }).limit(objectPagination.limitItem).skip(objectPagination.skip)
+  //sort
+  let sort = {}
+
+  if (req.query.sortKey && req.query.sortValue) {
+    sort[req.query.sortKey] = req.query.sortValue
+  } else {
+    sort.position = "desc"
+  }
+
+  //end sort
+
+  const products = await Products.find(find).sort(sort)
+    .limit(objectPagination.limitItem)
+    .skip(objectPagination.skip)
 
   res.render("admin/pages/products/index", {
     pageTitle: "Danh sách sản phẩm",
@@ -42,8 +55,6 @@ module.exports.index = async (req, res) => {
     pagination: objectPagination
   })
 }
-
-
 
 module.exports.changeStatus = async (req, res) => {
   const status = req.params.status
@@ -130,6 +141,13 @@ module.exports.createPost = async (req, res) => {
 
 module.exports.edit = async (req, res) => {
   const id = req.params.id
+
+  console.log({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_KEY,
+    api_secret: process.env.CLOUD_SECRET,
+  });
+
   try {
     const find = {
       deleted: false,
@@ -153,14 +171,17 @@ module.exports.editPatch = async (req, res) => {
   req.body.discountPercentage = parseInt(req.body.discountPercentage)
   req.body.stock = parseInt(req.body.stock)
 
-  console.log(req.body)
+
+
+  console.log("req:", req.body)
+  console.log("id:", id)
   try {
+
     await Product.updateOne({ _id: id }, req.body)
-    await Product.save()
 
   } catch (err) {
     console.error('Error updating product:', err);
-    res.status(500).send('Internal Server Error');
+    res.status(500).send('Internal Server Error: ', err);
   }
 
   res.redirect("back")
