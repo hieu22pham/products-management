@@ -28,6 +28,7 @@
     "sapper": "^0.29.3",
     "streamifier": "^0.1.1",
     "svelte": "^3.59.2",
+    "tinymce": "^7.2.1",
     "vercel-sapper": "^0.44.0"
   },
   "devDependencies": {

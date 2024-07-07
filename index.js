@@ -1,5 +1,6 @@
 const express = require('express')
 const database = require("./config/database")
+var path = require('path');
 const flash = require('express-flash')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
@@ -24,6 +25,10 @@ app.use(express.static(`${__dirname}/public`))
 app.use(methodOverride('_method'))
 
 app.use(bodyParser.urlencoded({ extended: false }))
+
+//tinyMCE
+app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
+//end tinyMCE
 
 // flash
 app.use(cookieParser('abcsdsbd'));

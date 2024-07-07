@@ -27,7 +27,7 @@ block main
   if(product.position)
     div() Vị trí: <b>#{product.position}</b>
   if(product.description)
-    p #{product.description}
+    p !{product.description}
   
     a(
       href=`${prefixAdmin}/products/edit/${product.id}`
