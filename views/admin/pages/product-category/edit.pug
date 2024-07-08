@@ -6,7 +6,7 @@ block main
   h1(class="mb-4") Chỉnh sửa danh mục sản phẩm
 
   form(
-    action=`${prefixAdmin}/products-category/create`
+    action=`${prefixAdmin}/products-category/edit/${data.id}?_method=PATCH`
     enctype="multipart/form-data"
     method="POST"
   )
@@ -16,6 +16,7 @@ block main
       input(
         type="text"
         class="form-control"
+        value=data.title
         id="title"
         name="title"
       )
@@ -26,6 +27,7 @@ block main
         type="text"
         class="form-control"
         id="parent_id"
+        value=data.parent_id
         name="parent_id"
       )
     
@@ -34,9 +36,10 @@ block main
       textarea(
         class="form-control textarea-mce"
         id="desc"
+        value=data.description
         name="description"
         rows="5"
-      )
+      ) #{data.description}
 
     div(class="form-group"
       upload-image
@@ -51,7 +54,7 @@ block main
         upload-image-input
       )
     
-    img(src="" 
+    img(src=data.thumbnail
         upload-image-preview
         class="image-preview"
       )
@@ -62,6 +65,7 @@ block main
         type="number"
         class="form-control"
         id="position"
+        value=data.position
         name="position"
         placeholder="Tự động tăng"
         min="1"
@@ -93,7 +97,7 @@ block main
       button(
         type="submit"
         class="btn btn-primary"
-      ) Tạo mới
+      ) Chỉnh sửa
 
  
 
