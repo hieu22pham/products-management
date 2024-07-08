@@ -36,3 +36,9 @@ module.exports.createPost = async (req, res) => {
 
   res.redirect("/admin/products-category")
 }
+
+module.exports.edit = (req, res) => {
+  res.render("admin/pages/product-category/edit", {
+    pageTitle: "Chỉnh sửa danh mục sản phẩm"
+  })
+}
