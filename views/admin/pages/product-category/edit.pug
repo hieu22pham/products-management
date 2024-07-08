@@ -78,7 +78,7 @@ block main
         id="statusActive"
         name="status"
         value="active"
-        checked
+        checked = (data.status=="active" ?true :false)
       )
       label(for="statusActive" class="form-check-label") Hoạt động
 
@@ -89,7 +89,7 @@ block main
         id="statusInactive"
         name="status"
         value="inactive"
-        checked
+        checked = (data.status=="inactive" ?true :false)
       )
       label(for="statusInactive" class="form-check-label") Dừng hoạt động
     
