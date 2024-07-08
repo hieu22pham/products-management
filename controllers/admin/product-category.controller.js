@@ -1,9 +1,17 @@
 const ProductCategory = require("../../models/product-category.model")
 
 
-module.exports.index = (req, res) => {
+module.exports.index = async (req, res) => {
+  let find = {
+    deleted: false
+  }
+
+  const records = await ProductCategory.find(find)
+
+
   res.render("admin/pages/product-category/index", {
-    pageTitle: "Danh mục sản phẩm"
+    pageTitle: "Danh mục sản phẩm",
+    records: records
   })
 }
 
