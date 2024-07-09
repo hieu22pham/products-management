@@ -73,9 +73,9 @@ module.exports.edit = async (req, res) => {
     deleted: false
   })
 
-  const tree = []
 
   function createTree(arr, parentId = "") {
+    const tree = []
     arr.forEach(item => {
       if (item.parent_id === parentId) {
         const newItem = item
