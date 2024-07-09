@@ -42,7 +42,7 @@ module.exports.create = async (req, res) => {
 
   res.render("admin/pages/product-category/create", {
     pageTitle: "Tạo danh mục sản phẩm",
-    records: records
+    records: newRecords
   })
 }
 
