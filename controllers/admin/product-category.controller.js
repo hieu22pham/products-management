@@ -15,9 +15,34 @@ module.exports.index = async (req, res) => {
   })
 }
 
-module.exports.create = (req, res) => {
+module.exports.create = async (req, res) => {
+  const records = await ProductCategory.find({
+    _id: id,
+    deleted: false
+  })
+
+  function createTree(arr, parentId = "") {
+    const tree = []
+    arr.forEach(item => {
+      if (item.parent_id === parentId) {
+        const newItem = item
+        const children = createTree(arr, item.id)
+        if (children.length > 0) {
+          newItem.children = children
+        }
+
+        tree.push(newItem)
+      }
+    });
+
+    return tree;
+  }
+
+  const newRecords = createTree(records)
+
   res.render("admin/pages/product-category/create", {
-    pageTitle: "Tạo danh mục sản phẩm"
+    pageTitle: "Tạo danh mục sản phẩm",
+    records: records
   })
 }
 
@@ -45,9 +70,17 @@ module.exports.edit = async (req, res) => {
     deleted: false
   })
 
+  const records = await ProductCategory.find({
+    _id: id,
+    deleted: false
+  })
+
+  const newRecords = createTreeHelper.tree(records);
+
   res.render("admin/pages/product-category/edit", {
     pageTitle: "Chỉnh sửa danh mục sản phẩm",
-    data: data
+    data: data,
+    records: records
   })
 }
 
