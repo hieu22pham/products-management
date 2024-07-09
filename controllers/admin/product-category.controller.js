@@ -17,7 +17,6 @@ module.exports.index = async (req, res) => {
 
 module.exports.create = async (req, res) => {
   const records = await ProductCategory.find({
-    _id: id,
     deleted: false
   })
 
@@ -71,16 +70,37 @@ module.exports.edit = async (req, res) => {
   })
 
   const records = await ProductCategory.find({
-    _id: id,
     deleted: false
   })
 
-  const newRecords = createTreeHelper.tree(records);
+  const tree = []
+
+  function createTree(arr, parentId = "") {
+    arr.forEach(item => {
+      if (item.parent_id === parentId) {
+        const newItem = item
+        const children = createTree(arr, item.id)
+        if (children.length > 0) {
+          newItem.children = children
+        }
+
+        tree.push(newItem)
+      }
+    });
+
+    return tree;
+  }
+
+  const newRecords = createTree(records)
+
+  console.log(newRecords)
+
+  // const newRecords = createTreeHelper.tree(records);
 
   res.render("admin/pages/product-category/edit", {
     pageTitle: "Chỉnh sửa danh mục sản phẩm",
     data: data,
-    records: records
+    records: newRecords
   })
 }
 
@@ -90,10 +110,6 @@ module.exports.editPatch = async (req, res) => {
   req.body.discountPercentage = parseInt(req.body.discountPercentage)
   req.body.stock = parseInt(req.body.stock)
 
-
-
-  console.log("req:", req.body)
-  console.log("id:", id)
   try {
 
     await ProductCategory.updateOne({ _id: id }, req.body)
