@@ -30,7 +30,7 @@ module.exports.index = async (req, res) => {
 
   res.render("admin/pages/product-category/index", {
     pageTitle: "Danh mục sản phẩm",
-    records: records
+    records: newRecords
   })
 }
 
