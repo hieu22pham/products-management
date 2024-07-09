@@ -73,7 +73,6 @@ module.exports.edit = async (req, res) => {
     deleted: false
   })
 
-
   function createTree(arr, parentId = "") {
     const tree = []
     arr.forEach(item => {
@@ -90,6 +89,8 @@ module.exports.edit = async (req, res) => {
 
     return tree;
   }
+
+
 
   const newRecords = createTree(records)
 
