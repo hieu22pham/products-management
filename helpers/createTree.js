@@ -15,7 +15,7 @@ function createTree(arr, parentId = "") {
   return tree;
 }
 
-module.exports.tree = () => {
+module.exports.tree = (arr, parentId = "") => {
   const tree = createTree(arr, parentId = "")
 
   return tree;

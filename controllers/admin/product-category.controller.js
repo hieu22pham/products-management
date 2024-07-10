@@ -8,7 +8,7 @@ module.exports.index = async (req, res) => {
 
   const records = await ProductCategory.find(find)
 
-  const newRecords = createTree(records)
+  const newRecords = createTreeHelper.tree(records)
 
   res.render("admin/pages/product-category/index", {
     pageTitle: "Danh mục sản phẩm",

@@ -17,7 +17,7 @@ mixin table-tree(items, level = 1)
           height="100px"
           style="object-fit: cover"
         )
-      td #{item.title}
+      td #{prefix}#{item.title}
       td #{item.price}
       td 
         input(
