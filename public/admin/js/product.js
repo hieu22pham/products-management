@@ -288,15 +288,48 @@ if (sort) {
 
 //category selected in edit
 
-const categorySelect = document.getElementById('parent_id');
+const categorySelect = document.getElementById('parent_idEdit');
 
-const selectedValue = categorySelect.value;
-console.log('Selected value:', selectedValue);
+const selectedText = categorySelect.name;
+
+console.log('Selected value:', selectedText);
 
 // Nếu bạn muốn kiểm tra xem giá trị có trong mảng không
-const optionArray = Array.from(categorySelect.options).map(option => option.value);
-const isValueInArray = optionArray.includes(selectedValue);
+const options = categorySelect.options;
+const optionValues = [];
+const optionTexts = [];
 
-console.log('Is value in array:', isValueInArray);
+for (let i = 0; i < options.length; i++) {
+  optionTexts.push(options[i].text);   // Lấy văn bản của option
+}
+
+console.log('Option values:', optionValues);
+console.log('Option texts:', optionTexts);
+
+var index = -1;
+
+for (let i = 0; i < options.length; i++) {
+  if (optionTexts[i].includes(selectedText)) {
+    index = i;
+  }
+}
+
+function countCharacterOccurrences(word) {
+  var charCount = 0;
+
+  for (var i = 0; i < word.length; i++) {
+    if (word[i] == "-") {
+      charCount++;
+    }
+  }
+
+  return charCount;
+}
+
+console.log(countCharacterOccurrences(optionTexts[index]))
+
+for (let i = index; i >= 0; i--) {
+  // if ()
+}
 
 //end selected
