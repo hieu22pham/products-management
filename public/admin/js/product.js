@@ -326,10 +326,15 @@ function countCharacterOccurrences(word) {
   return charCount;
 }
 
-console.log(countCharacterOccurrences(optionTexts[index]))
+var result = countCharacterOccurrences(optionTexts[index])
+var t = -1;
 
 for (let i = index; i >= 0; i--) {
-  // if ()
+  if (countCharacterOccurrences(optionTexts[i]) == result - 2) {
+    t = i;
+    break;
+  }
 }
 
+options[t].selected = true
 //end selected
