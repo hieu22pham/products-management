@@ -284,3 +284,19 @@ if (sort) {
   //end selected
 }
 //end sort
+
+
+//category selected in edit
+
+const categorySelect = document.getElementById('parent_id');
+
+const selectedValue = categorySelect.value;
+console.log('Selected value:', selectedValue);
+
+// Nếu bạn muốn kiểm tra xem giá trị có trong mảng không
+const optionArray = Array.from(categorySelect.options).map(option => option.value);
+const isValueInArray = optionArray.includes(selectedValue);
+
+console.log('Is value in array:', isValueInArray);
+
+//end selected
