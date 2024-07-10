@@ -1,5 +1,5 @@
 const ProductCategory = require("../../models/product-category.model")
-
+const createTreeHelper = require("../../helpers/createTree")
 
 module.exports.index = async (req, res) => {
   let find = {
@@ -8,26 +8,7 @@ module.exports.index = async (req, res) => {
 
   const records = await ProductCategory.find(find)
 
-  function createTree(arr, parentId = "") {
-    const tree = []
-
-    arr.forEach(item => {
-      if (item.parent_id === parentId) {
-        const newItem = item
-        const children = createTree(arr, item.id)
-        if (children.length > 0) {
-          newItem.children = children
-        }
-
-        tree.push(newItem)
-      }
-    });
-
-    return tree;
-  }
-
   const newRecords = createTree(records)
-
 
   res.render("admin/pages/product-category/index", {
     pageTitle: "Danh mục sản phẩm",
@@ -36,29 +17,11 @@ module.exports.index = async (req, res) => {
 }
 
 module.exports.create = async (req, res) => {
-  function createTree(arr, parentId = "") {
-    const tree = []
-
-    arr.forEach(item => {
-      if (item.parent_id === parentId) {
-        const newItem = item
-        const children = createTree(arr, item.id)
-        if (children.length > 0) {
-          newItem.children = children
-        }
-
-        tree.push(newItem)
-      }
-    });
-
-    return tree;
-  }
-
   const records = await ProductCategory.find({
     deleted: false
   })
 
-  const newRecords = createTree(records)
+  const newRecords = createTreeHelper.tree(records)
 
   res.render("admin/pages/product-category/create", {
     pageTitle: "Tạo danh mục sản phẩm",
@@ -94,24 +57,7 @@ module.exports.edit = async (req, res) => {
     deleted: false
   })
 
-  function createTree(arr, parentId = "") {
-    const tree = []
-    arr.forEach(item => {
-      if (item.parent_id === parentId) {
-        const newItem = item
-        const children = createTree(arr, item.id)
-        if (children.length > 0) {
-          newItem.children = children
-        }
-
-        tree.push(newItem)
-      }
-    });
-
-    return tree;
-  }
-
-  const newRecords = createTree(records)
+  const newRecords = createTreeHelper.tree(records)
 
   console.log(newRecords)
 
