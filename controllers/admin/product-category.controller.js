@@ -10,6 +10,7 @@ module.exports.index = async (req, res) => {
 
   function createTree(arr, parentId = "") {
     const tree = []
+
     arr.forEach(item => {
       if (item.parent_id === parentId) {
         const newItem = item
@@ -35,12 +36,9 @@ module.exports.index = async (req, res) => {
 }
 
 module.exports.create = async (req, res) => {
-  const records = await ProductCategory.find({
-    deleted: false
-  })
-
   function createTree(arr, parentId = "") {
     const tree = []
+
     arr.forEach(item => {
       if (item.parent_id === parentId) {
         const newItem = item
@@ -55,6 +53,10 @@ module.exports.create = async (req, res) => {
 
     return tree;
   }
+
+  const records = await ProductCategory.find({
+    deleted: false
+  })
 
   const newRecords = createTree(records)
 
