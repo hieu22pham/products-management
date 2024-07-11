@@ -20,6 +20,7 @@ function createTree(arr, parentId = "") {
 }
 
 module.exports.tree = (arr, parentId = "") => {
+  count = 0;
   const tree = createTree(arr, parentId = "")
 
   return tree;
