@@ -286,7 +286,7 @@ if (sort) {
 //end sort
 
 
-//category selected in edit
+//category selected in edit category
 
 const categorySelect = document.getElementById('parent_idEdit');
 
@@ -338,3 +338,9 @@ for (let i = index; i >= 0; i--) {
 
 options[t].selected = true
 //end selected
+
+
+//category selected in edit product
+
+//end selected
+
