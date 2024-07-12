@@ -161,10 +161,10 @@ module.exports.edit = async (req, res) => {
     }
 
     const product = await Product.findOne(find)
+    console.log(product)
 
-    if (product.product_category_id) {
-      var categoryName = await ProductCategory.findOne(product.product_category_id)
-    }
+    const categoryName = await ProductCategory.findOne({ product_category_id: product.product_category_id })
+    console.log("tittle:", categoryName.title)
 
     res.render("admin/pages/products/edit", {
       pageTitle: "Chỉnh sửa sản phẩm",
