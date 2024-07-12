@@ -341,6 +341,22 @@ options[t].selected = true
 
 
 //category selected in edit product
+const categorySelectInEditProduct = document.getElementById('product_category_id');
 
+const selectedTextInEditProduct = categorySelectInEditProduct.name;
+
+console.log('Selected value:', selectedText);
+const optionsInEditProduct = categorySelectInEditProduct.options;
+const optionValuesInEditProduct = [];
+const optionTextsInEditProduct = [];
+
+for (let i = 0; i < optionsInEditProduct.length; i++) {
+  optionTexts.push(optionsInEditProduct[i].text);   // Lấy văn bản của option
+}
+
+for (let i = 0; i < optionsInEditProduct.length; i++) {
+
+}
+optionsInEditProduct
 //end selected
 
