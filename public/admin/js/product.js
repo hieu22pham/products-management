@@ -345,26 +345,29 @@ if (categorySelect) {
 //category selected in edit product
 const categorySelectInEditProduct = document.getElementById('product_category_id');
 
-const selectedTextInEditProduct = categorySelectInEditProduct.name;
 
-console.log('Selected value:', selectedTextInEditProduct);
-const optionsInEditProduct = categorySelectInEditProduct.options;
-const optionValuesInEditProduct = [];
-const optionTextsInEditProduct = [];
+if (categorySelectInEditProduct) {
+  const selectedTextInEditProduct = categorySelectInEditProduct.name;
 
-for (let i = 0; i < optionsInEditProduct.length; i++) {
-  optionTextsInEditProduct.push(optionsInEditProduct[i].text);   // Lấy văn bản của option
-}
+  console.log('Selected value:', selectedTextInEditProduct);
+  const optionsInEditProduct = categorySelectInEditProduct.options;
+  const optionValuesInEditProduct = [];
+  const optionTextsInEditProduct = [];
 
-var index2 = -1;
-for (let i = 0; i < optionsInEditProduct.length; i++) {
-  if (optionsInEditProduct[i].includes(selectedTextInEditProduct)) {
-    index2 = i;
-    console.log(i)
+  for (let i = 0; i < optionsInEditProduct.length; i++) {
+    optionTextsInEditProduct.push(optionsInEditProduct[i].text);   // Lấy văn bản của option
   }
-}
 
-optionsInEditProduct[index2].selected = true
+  var index2 = -1;
+  for (let i = 0; i < optionsInEditProduct.length; i++) {
+    if (optionTextsInEditProduct[i].includes(selectedTextInEditProduct)) {
+      index2 = i;
+      console.log(i)
+    }
+  }
+
+  optionsInEditProduct[index2].selected = true
+}
 
 //end selected
 
