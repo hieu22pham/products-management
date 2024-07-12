@@ -290,53 +290,55 @@ if (sort) {
 
 const categorySelect = document.getElementById('parent_idEdit');
 
-const selectedText = categorySelect.name;
+if (categorySelect) {
+  const selectedText = categorySelect.name;
 
-console.log('Selected value:', selectedText);
+  console.log('Selected value:', selectedText);
 
-// Nếu bạn muốn kiểm tra xem giá trị có trong mảng không
-const options = categorySelect.options;
-const optionValues = [];
-const optionTexts = [];
+  // Nếu bạn muốn kiểm tra xem giá trị có trong mảng không
+  const options = categorySelect.options;
+  const optionValues = [];
+  const optionTexts = [];
 
-for (let i = 0; i < options.length; i++) {
-  optionTexts.push(options[i].text);   // Lấy văn bản của option
-}
-
-console.log('Option values:', optionValues);
-console.log('Option texts:', optionTexts);
-
-var index = -1;
-
-for (let i = 0; i < options.length; i++) {
-  if (optionTexts[i].includes(selectedText)) {
-    index = i;
+  for (let i = 0; i < options.length; i++) {
+    optionTexts.push(options[i].text);   // Lấy văn bản của option
   }
-}
 
-function countCharacterOccurrences(word) {
-  var charCount = 0;
+  console.log('Option values:', optionValues);
+  console.log('Option texts:', optionTexts);
 
-  for (var i = 0; i < word.length; i++) {
-    if (word[i] == "-") {
-      charCount++;
+  var index = -1;
+
+  for (let i = 0; i < options.length; i++) {
+    if (optionTexts[i].includes(selectedText)) {
+      index = i;
     }
   }
 
-  return charCount;
-}
+  function countCharacterOccurrences(word) {
+    var charCount = 0;
 
-var result = countCharacterOccurrences(optionTexts[index])
-var t = -1;
+    for (var i = 0; i < word.length; i++) {
+      if (word[i] == "-") {
+        charCount++;
+      }
+    }
 
-for (let i = index; i >= 0; i--) {
-  if (countCharacterOccurrences(optionTexts[i]) == result - 2) {
-    t = i;
-    break;
+    return charCount;
   }
-}
 
-options[t].selected = true
+  var result = countCharacterOccurrences(optionTexts[index])
+  var t = -1;
+
+  for (let i = index; i >= 0; i--) {
+    if (countCharacterOccurrences(optionTexts[i]) == result - 2) {
+      t = i;
+      break;
+    }
+  }
+
+  options[t].selected = true
+}
 //end selected
 
 
@@ -345,18 +347,24 @@ const categorySelectInEditProduct = document.getElementById('product_category_id
 
 const selectedTextInEditProduct = categorySelectInEditProduct.name;
 
-console.log('Selected value:', selectedText);
+console.log('Selected value:', selectedTextInEditProduct);
 const optionsInEditProduct = categorySelectInEditProduct.options;
 const optionValuesInEditProduct = [];
 const optionTextsInEditProduct = [];
 
 for (let i = 0; i < optionsInEditProduct.length; i++) {
-  optionTexts.push(optionsInEditProduct[i].text);   // Lấy văn bản của option
+  optionTextsInEditProduct.push(optionsInEditProduct[i].text);   // Lấy văn bản của option
 }
 
+var index2 = -1;
 for (let i = 0; i < optionsInEditProduct.length; i++) {
-
+  if (optionsInEditProduct[i].includes(selectedTextInEditProduct)) {
+    index2 = i;
+    console.log(i)
+  }
 }
-optionsInEditProduct
+
+optionsInEditProduct[index2].selected = true
+
 //end selected
 

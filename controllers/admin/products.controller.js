@@ -162,10 +162,15 @@ module.exports.edit = async (req, res) => {
 
     const product = await Product.findOne(find)
 
+    if (product.product_category_id) {
+      var categoryName = await ProductCategory.findOne(product.product_category_id)
+    }
+
     res.render("admin/pages/products/edit", {
       pageTitle: "Chỉnh sửa sản phẩm",
       product: product,
-      category: category
+      category: category,
+      categoryName: categoryName
     })
   } catch (error) {
     res.redirect(`${systemConfig.prefixAdmin}/products`)
