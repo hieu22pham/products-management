@@ -148,13 +148,11 @@ module.exports.createPost = async (req, res) => {
 }
 
 module.exports.edit = async (req, res) => {
-  const id = req.params.id
+  const records = await ProductCategory.find({
+    deleted: false
+  })
 
-  console.log({
-    cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.CLOUD_KEY,
-    api_secret: process.env.CLOUD_SECRET,
-  });
+  const category = createTreeHelper.tree(records)
 
   try {
     const find = {
@@ -166,7 +164,8 @@ module.exports.edit = async (req, res) => {
 
     res.render("admin/pages/products/edit", {
       pageTitle: "Chỉnh sửa sản phẩm",
-      product: product
+      product: product,
+      category: category
     })
   } catch (error) {
     res.redirect(`${systemConfig.prefixAdmin}/products`)
