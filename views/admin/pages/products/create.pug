@@ -22,6 +22,18 @@ block main
       )
     
     div(class="form-group")
+    label(for="") Danh mục
+    select(
+      name=data.title
+      id=""
+      class="form-control"
+    ) 
+      option(value="") -- Chọn danh mục --
+        if(records)
+          +select-tree(records)
+    
+    
+    div(class="form-group")
       label(for="desc") Mô tả
       textarea(
         class="form-control textarea-mce"
