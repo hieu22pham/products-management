@@ -4,9 +4,10 @@ const rolesSchema = new mongoose.Schema(
   {
     title: String,
     description: String,
-    nhomQuyen: {
-      type:
-    }
+    permissions: {
+      type: Array,
+      default: []
+    },
     deleted: {
       type: Boolean,
       default: false
