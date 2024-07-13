@@ -1,9 +1,6 @@
 const mongoose = require("mongoose");
-var slug = require("mongoose-slug-updater")
 
-mongoose.plugin(slug)
-
-const productSchema = new mongoose.Schema(
+const rolesSchema = new mongoose.Schema(
   {
     title: String,
     product_category_id: String,
