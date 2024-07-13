@@ -312,6 +312,7 @@ if (categorySelect) {
   for (let i = 0; i < options.length; i++) {
     if (optionTexts[i].includes(selectedText)) {
       index = i;
+      break;
     }
   }
 
@@ -319,7 +320,7 @@ if (categorySelect) {
     var charCount = 0;
 
     for (var i = 0; i < word.length; i++) {
-      if (word[i] == "-") {
+      if (word[i] === '-') {
         charCount++;
       }
     }
@@ -328,11 +329,13 @@ if (categorySelect) {
   }
 
   var result = countCharacterOccurrences(optionTexts[index])
+  console.log(result)
   var t = -1;
 
   for (let i = index; i >= 0; i--) {
     if (countCharacterOccurrences(optionTexts[i]) == result - 2) {
       t = i;
+      console.log(i)
       break;
     }
   }
@@ -358,9 +361,30 @@ if (categorySelectInEditProduct) {
     optionTextsInEditProduct.push(optionsInEditProduct[i].text);   // Lấy văn bản của option
   }
 
+  function TrimCharacterOccurrences(word) {
+    var charCount = 0;
+    let newWord = "";
+
+    let regex = /[A-Z]/; 
+    var t = -1;
+    for (var i = 0; i < word.length; i++) {
+      if (regex.test(word[i])) {
+        t = i;
+      }
+    }
+
+    for (var i = t; i < word.length; i++) {
+      newWord += word[i];
+    }
+
+    console.log(newWord)
+    return newWord;
+  }
+
   var index2 = -1;
   for (let i = 0; i < optionsInEditProduct.length; i++) {
-    if (optionTextsInEditProduct[i].includes(selectedTextInEditProduct)) {
+    console.log(TrimCharacterOccurrences(optionTextsInEditProduct[i]))
+    if (selectedTextInEditProduct == (TrimCharacterOccurrences(optionTextsInEditProduct[i]))) {
       index2 = i;
       console.log(i)
     }
