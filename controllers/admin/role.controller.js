@@ -7,8 +7,5 @@ module.exports.index = async (req, res) => {
 
   res.render("admin/pages/role", {
     pageTitle: "Danh sách sản phẩm",
-    products: products,
-    filterStatus: filterStatus,
-    pagination: objectPagination
   })
 }
