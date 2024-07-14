@@ -3,7 +3,7 @@ const productRoutes = require("./product.route")
 
 const systemConfig = require("../../config/system/system.js")
 const productCategoryRoutes = require("./product-category.route.js")
-const roleRoutes = require("../../controllers/admin/role.controller")
+const roleRoutes = require("./role.route.js")
 
 module.exports = (app) => {
   const PATH_ADMIN = systemConfig.prefixAdmin
