@@ -6,6 +6,6 @@ const paginationHelper = require("../../helpers/pagination")
 module.exports.index = async (req, res) => {
 
   res.render("admin/pages/role", {
-    pageTitle: "Danh sách sản phẩm",
+    pageTitle: "Nhóm quyền",
   })
 }
