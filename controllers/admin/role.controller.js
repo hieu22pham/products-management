@@ -5,14 +5,14 @@ const paginationHelper = require("../../helpers/pagination")
 
 module.exports.index = async (req, res) => {
 
-  res.render("admin/pages/role", {
+  res.render("admin/pages/role/index", {
     pageTitle: "Nhóm quyền",
   })
 }
 
 module.exports.create = async (req, res) => {
 
-  res.render("admin/pages/role", {
+  res.render("admin/pages/role/create", {
     pageTitle: "Nhóm quyền",
   })
 }

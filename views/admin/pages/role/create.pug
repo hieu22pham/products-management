@@ -1,0 +1,13 @@
+extends ../../layouts/default.pug
+include ../../mixins/filterStatus.pug
+include ../../mixins/search.pug
+include ../../mixins/pagination.pug
+include ../../mixins/changeMulti.pug
+include ../../mixins/alert.pug
+include ../../mixins/sort.pug
+
+block main
+  +alert-suceess(5000)
+  
+  h1(class="mb-4") Tạo mới
+
