@@ -13,6 +13,6 @@ module.exports.index = async (req, res) => {
 module.exports.create = async (req, res) => {
 
   res.render("admin/pages/role/create", {
-    pageTitle: "Nhóm quyền",
+    pageTitle: "Tạo nhóm quyền",
   })
 }
