@@ -11,3 +11,10 @@ block main
   
   h1(class="mb-4") Tạo mới
 
+  form(
+    action=`${prefixAdmin}/roles/create`
+    enctype="multipart/form-data"
+    id="form-create-product"
+    method="POST"
+  )
+
