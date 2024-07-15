@@ -8,5 +8,16 @@ include ../../mixins/sort.pug
 
 block main
   +alert-suceess(5000)
+   h1(class="test") Danh mục sản phẩm
 
-  h1(class="test") Nhóm quyền
+  .card.mb-1 
+    .card-header Danh mục
+      .card-body 
+        .row 
+          .col-8
+            +form-change-multi(`${prefixAdmin}/products-category/change-multi?_method=PATCH`)
+          .col-4
+            a(
+              href=`${prefixAdmin}/products-category/create` 
+              class="btn btn-outline-success"
+            ) + Thêm mới
