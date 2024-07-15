@@ -9,3 +9,10 @@ module.exports.index = async (req, res) => {
     pageTitle: "Nhóm quyền",
   })
 }
+
+module.exports.create = async (req, res) => {
+
+  res.render("admin/pages/role", {
+    pageTitle: "Nhóm quyền",
+  })
+}
