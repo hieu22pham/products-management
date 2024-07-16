@@ -4,6 +4,11 @@ const searchHelper = require("../../helpers/search")
 const paginationHelper = require("../../helpers/pagination")
 
 module.exports.index = async (req, res) => {
+  let find = {
+    deleted: false
+  }
+
+  
 
   res.render("admin/pages/role/index", {
     pageTitle: "Nhóm quyền",
