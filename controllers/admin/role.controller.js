@@ -2,13 +2,14 @@ const Products = require("../../models/product.model")
 const filterStatusHelper = require("../../helpers/filterStatus")
 const searchHelper = require("../../helpers/search")
 const paginationHelper = require("../../helpers/pagination")
+const Role = require("../../models/roles.model")
 
 module.exports.index = async (req, res) => {
   let find = {
     deleted: false
   }
 
-  
+  const record = await Role.find(find)
 
   res.render("admin/pages/role/index", {
     pageTitle: "Nhóm quyền",
