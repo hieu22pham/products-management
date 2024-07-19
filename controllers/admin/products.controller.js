@@ -54,6 +54,7 @@ module.exports.index = async (req, res) => {
     pageTitle: "Danh sách sản phẩm",
     products: products,
     filterStatus: filterStatus,
+    pagination: objectPagination
   })
 }
 
