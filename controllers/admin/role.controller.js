@@ -27,5 +27,5 @@ module.exports.createPost = async (req, res) => {
   const record = new Role(req.body)
   await record.save();
 
-  res.redirect("admin/pages/role/create")
+  res.redirect("/admin/roles/create")
 }
