@@ -24,6 +24,8 @@ module.exports.create = async (req, res) => {
 }
 
 module.exports.createPost = async (req, res) => {
+  const record = new Role(req.body)
+  await record.save();
 
   res.render("admin/pages/role/create", {
     pageTitle: "Tạo nhóm quyền",
