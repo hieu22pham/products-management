@@ -22,3 +22,10 @@ module.exports.create = async (req, res) => {
     pageTitle: "Tạo nhóm quyền",
   })
 }
+
+module.exports.createPost = async (req, res) => {
+
+  res.render("admin/pages/role/create", {
+    pageTitle: "Tạo nhóm quyền",
+  })
+}
