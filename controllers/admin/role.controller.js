@@ -3,6 +3,7 @@ const filterStatusHelper = require("../../helpers/filterStatus")
 const searchHelper = require("../../helpers/search")
 const paginationHelper = require("../../helpers/pagination")
 const Role = require("../../models/roles.model")
+const systemConfig = require("../../config/system/system")
 
 module.exports.index = async (req, res) => {
   let find = {
@@ -27,5 +28,5 @@ module.exports.createPost = async (req, res) => {
   const record = new Role(req.body)
   await record.save();
 
-  res.redirect("/admin/roles/create")
+  res.redirect(`${systemConfig.prefixAdmin}/roles/create`)
 }
