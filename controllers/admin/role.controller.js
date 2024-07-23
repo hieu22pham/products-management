@@ -31,3 +31,11 @@ module.exports.createPost = async (req, res) => {
 
   res.redirect(`${systemConfig.prefixAdmin}/roles/create`)
 }
+
+module.exports.edit = async (req, res) => {
+  
+
+  res.render("admin/pages/role/edit", {
+    pageTitle: "Sửa nhóm quyền",
+  })
+}
