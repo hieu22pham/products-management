@@ -60,7 +60,7 @@ block main
                         class="btn btn-secondary btn-sm"
                         ) Chi tiết
                     a(
-                      href=`${prefixAdmin}/products/edit/${item.id}`
+                      href=`${prefixAdmin}/roles/edit/${item.id}`
                       class="btn btn-warning btn-sm"
                       ) Sửa 
                     button(
@@ -68,3 +68,6 @@ block main
                       button-delete 
                       data-id=item.id
                     ) Xóa
+            else 
+              tr 
+                td(colspan="4" class="text-center") Chưa có nhóm quyền nào được tạo
