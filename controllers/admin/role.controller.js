@@ -10,10 +10,11 @@ module.exports.index = async (req, res) => {
     deleted: false
   }
 
-  const record = await Role.find(find)
+  const records = await Role.find(find)
 
   res.render("admin/pages/role/index", {
     pageTitle: "Nhóm quyền",
+    records: records
   })
 }
 
