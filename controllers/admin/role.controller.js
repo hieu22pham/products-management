@@ -33,9 +33,16 @@ module.exports.createPost = async (req, res) => {
 }
 
 module.exports.edit = async (req, res) => {
-  
+  const id = req.params.id
+  let find = {
+    _id: id,
+    deleted: false
+  }
+
+  const data = await Role.findOne(find)
 
   res.render("admin/pages/role/edit", {
     pageTitle: "Sửa nhóm quyền",
+    data: data
   })
 }
