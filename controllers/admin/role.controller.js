@@ -63,3 +63,7 @@ module.exports.editPatch = async (req, res) => {
   }
   res.redirect("back")
 }
+
+module.exports.permissions = async (req, res) => {
+    
+}
