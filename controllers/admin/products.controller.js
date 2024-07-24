@@ -183,8 +183,6 @@ module.exports.editPatch = async (req, res) => {
   req.body.discountPercentage = parseInt(req.body.discountPercentage)
   req.body.stock = parseInt(req.body.stock)
 
-
-
   console.log("req:", req.body)
   console.log("id:", id)
   try {

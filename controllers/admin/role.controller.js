@@ -1,4 +1,3 @@
-const Products = require("../../models/product.model")
 const filterStatusHelper = require("../../helpers/filterStatus")
 const searchHelper = require("../../helpers/search")
 const paginationHelper = require("../../helpers/pagination")
@@ -33,17 +32,34 @@ module.exports.createPost = async (req, res) => {
 }
 
 module.exports.edit = async (req, res) => {
-  const id = req.params.id
-  let find = {
-    _id: id,
-    deleted: false
+  try {
+    const id = req.params.id
+    let find = {
+      _id: id,
+      deleted: false
+    }
+
+    const data = await Role.findOne(find)
+    console.log(data)
+
+    res.render("admin/pages/role/edit", {
+      pageTitle: "Sửa nhóm quyền",
+      data: data
+    })
+  } catch (err) {
+    res.redirect(`${systemConfig.prefixAdmin}/roles`)
   }
+}
 
-  const data = await Role.findOne(find)
-  console.log(data)
+module.exports.editPatch = async (req, res) => {
+  const id = req.params.id
+  console.log(id, "req:" + req.body)
+  try {
+    await Role.updateOne({ _id: id }, req.body)
 
-  res.render("admin/pages/role/edit", {
-    pageTitle: "Sửa nhóm quyền",
-    data: data
-  })
+  } catch (err) {
+    console.error('Error updating product:', err);
+    res.status(500).send('Internal Server Error: ', err);
+  }
+  res.redirect("back")
 }

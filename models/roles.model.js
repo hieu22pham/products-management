@@ -20,6 +20,6 @@ const rolesSchema = new mongoose.Schema(
   }
 });
 
-const Product = mongoose.model('Role', rolesSchema, "roles");
+const Role = mongoose.model('Role', rolesSchema, "roles");
 
-module.exports = Product;
+module.exports = Role;

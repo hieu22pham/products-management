@@ -1,0 +1,47 @@
+extends ../../layouts/default.pug
+include ../../mixins/filterStatus.pug
+include ../../mixins/search.pug
+include ../../mixins/pagination.pug
+include ../../mixins/changeMulti.pug
+include ../../mixins/alert.pug
+include ../../mixins/sort.pug
+
+block main
+  +alert-suceess(5000)
+  
+  h1(class="mb-4") Chỉnh sửa quyền mới
+
+  form(
+    action=`${prefixAdmin}/roles/edit/${data.id}?_method=PATCH`
+    enctype="multipart/form-data"
+    method="POST"
+  )
+
+    div(class="form-group")
+      label(for="title") Tiêu đề
+      input(
+        type="text"
+        class="form-control"
+        id="title"
+        value=data.title
+        name="title"
+        required
+      )
+    
+    div(class="form-group")
+      label(for="desc") Mô tả
+      input(
+        type="text"
+        class="form-control textarea-mce"
+        value=data.description
+        id="desc"
+        name="description"
+      )
+    
+    div(class="form-group")
+      button(
+        id="btnEdit"
+        type="submit"
+        class="btn btn-primary mt-3"
+      ) Cập nhật
+
