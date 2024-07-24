@@ -70,6 +70,7 @@ module.exports.permissions = async (req, res) => {
   }
 
   const records = Role.find(find)
+
   res.render("admin/pages/role/permissions", {
     pageTitle: "Phân quyền",
     records: records
