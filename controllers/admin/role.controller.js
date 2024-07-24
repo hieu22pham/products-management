@@ -65,5 +65,13 @@ module.exports.editPatch = async (req, res) => {
 }
 
 module.exports.permissions = async (req, res) => {
-    
+  let find = {
+    deleted: false
+  }
+
+  const records = Role.find(find)
+  res.render("admin/pages/role/permissions", {
+    pageTitle: "Phân quyền",
+    records: records
+  })
 }
