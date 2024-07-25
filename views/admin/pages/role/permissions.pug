@@ -15,6 +15,7 @@ block main
       ) Cập nhật
     
     table(
+      class="table table-hover table-sm"
     )
       thead 
         tr  
@@ -22,6 +23,11 @@ block main
           each item in records
             th(class="text-center") #{item.title}
       tbody 
+        tr(data-name="id")
+          td 
+          each item in records 
+            td(class="text-center")
+              input(type="text" value=item.id)
         tr 
           td(colspan="4")
             b Danh mục sản phẩm 
