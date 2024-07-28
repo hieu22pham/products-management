@@ -11,7 +11,28 @@ if (tablePermissions) {
       const name = row.getAttribute("data-name")
       const inputs = row.querySelector("input")
 
+      if (name == "id") {
+        inputs.forEach(input => {
+          const id = input.value
+          permissions.push({
+            id: id,
+            permissions: []
+          })
+        })
+      } else {
+        inputs.forEach((input, index) => {
+          const checked = input.checked
+
+          if(checked){
+            permissions[index].permissions.push(name)
+          }
+        })
+      }
     })
+
+    if(permissions.length > 0){
+      
+    }
 
   })
 }
