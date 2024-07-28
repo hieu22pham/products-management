@@ -7,6 +7,11 @@ if (tablePermissions) {
 
     const rows = tablePermissions.querySelectorAll("[data-name]")
 
-    
+    rows.forEach(row => {
+      const name = row.getAttribute("data-name")
+      const inputs = row.querySelector("input")
+
+    })
+
   })
 }
