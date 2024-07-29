@@ -47,14 +47,20 @@ const dataRecords = document.querySelector("[data-records]")
 
 if (dataRecords) {
   const records = JSON.parse(dataRecords.getAttribute("data-records"))
+  console.log(records)
 
   const tablePermissions = document.querySelector("[table-permissions]")
   records.forEach((record, index) => {
     const permissions = record.permissions
+    console.log(permissions)
+
 
     permissions.forEach(permission => {
       const row = tablePermissions.querySelector(`data-name="${permission}"`)
       console.log(row)
+
+      const input = row.querySelectorAll("input")[index]
+      input.checked = true
     })
   })
 }
