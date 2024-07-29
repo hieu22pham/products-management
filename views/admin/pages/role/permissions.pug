@@ -16,6 +16,7 @@ block main
     
     table(
       class="table table-hover table-sm"
+      table-permissions
     )
       thead 
         tr  
@@ -56,7 +57,6 @@ block main
     id="form-change-permissions"
     method="post"
     action=`${prefixAdmin}/roles/permissions?_method=PATCH`
-    class="d-none"
   )
     div(class="form-group")
       input(

@@ -76,3 +76,8 @@ module.exports.permissions = async (req, res) => {
     records: records
   })
 }
+
+module.exports.permissionsPatch = async (req, res) => {
+
+  res.send("Ok")
+}

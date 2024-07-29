@@ -23,15 +23,20 @@ if (tablePermissions) {
         inputs.forEach((input, index) => {
           const checked = input.checked
 
-          if(checked){
+          if (checked) {
             permissions[index].permissions.push(name)
           }
         })
       }
     })
 
-    if(permissions.length > 0){
-      
+    if (permissions.length > 0) {
+      console.log("Coo")
+      const formChangePermissions = document.querySelector("#form-change-permissions")
+      const inputPermissions = formChangePermissions.querySelector("input[name='permissions']")
+
+      inputPermissions.value = JSON.stringify(permissions)
+      formChangePermissions.submit()
     }
 
   })
