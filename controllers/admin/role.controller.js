@@ -84,5 +84,7 @@ module.exports.permissionsPatch = async (req, res) => {
     await Role.updateOne({ _id: item.id }, { permissions: item.permissions })
   }
 
+  req.flash("success", "Cập nhật phân quyền thành công!")
+
   res.redirect("back")
 }
