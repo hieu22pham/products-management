@@ -9,7 +9,7 @@ if (tablePermissions) {
 
     rows.forEach(row => {
       const name = row.getAttribute("data-name")
-      const inputs = row.querySelector("input")
+      const inputs = row.querySelectorAll("input")
 
       if (name == "id") {
         inputs.forEach(input => {
