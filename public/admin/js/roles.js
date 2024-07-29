@@ -49,6 +49,13 @@ if (dataRecords) {
   const records = JSON.parse(dataRecords.getAttribute("data-records"))
 
   const tablePermissions = document.querySelector("[table-permissions]")
-  
+  records.forEach((record, index) => {
+    const permissions = record.permissions
+
+    permissions.forEach(permission => {
+      const row = tablePermissions.querySelector(`data-name="${permission}"`)
+      console.log(row)
+    })
+  })
 }
 //End Permissions data default
