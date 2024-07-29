@@ -41,3 +41,14 @@ if (tablePermissions) {
 
   })
 }
+
+//Permissions data default
+const dataRecords = document.querySelector("[data-records]")
+
+if (dataRecords) {
+  const records = JSON.parse(dataRecords.getAttribute("data-records"))
+
+  const tablePermissions = document.querySelector("[table-permissions]")
+  
+}
+//End Permissions data default
