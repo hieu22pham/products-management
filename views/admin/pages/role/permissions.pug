@@ -23,6 +23,7 @@ block main
         tr  
           th Tính năng 
           each item in records
+            th(class="text-center") #{item.title}
       tbody 
         tr(data-name="id" class="d-none")
           td 
