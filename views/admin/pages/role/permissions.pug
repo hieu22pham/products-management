@@ -4,13 +4,13 @@ include ../../mixins/alert.pug
 block main
   +alert-suceess(5000)
   
-  h1(class="mb-4") Phân quyền
 
   if(records)
     div(data-records = records)
     div(class="text-right")
       button(
         type="submit"
+        class="btn btn-primary mb-3"
         button-submit
       ) Cập nhật
     
