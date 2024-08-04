@@ -1,0 +1,15 @@
+extends ../../layouts/default.pug
+
+block main
+  h1(class="test") Danh sách tài khoản
+
+  .card.mb-1 
+    .card-header Danh sách
+      .card-body 
+        .row 
+          .col-8
+          .col-4
+            a(
+              href=`${prefixAdmin}/accounts/create` 
+              class="btn btn-outline-success"
+            ) + Thêm mới

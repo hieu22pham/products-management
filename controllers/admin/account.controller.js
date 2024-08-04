@@ -11,7 +11,14 @@ module.exports.index = async (req, res) => {
 
   const records = await Account.find(find)
 
-  res.render("admin/pages/account/index", {
+  res.render("admin/pages/accounts/index", {
+    pageTitle: "Danh sách tài khoản",
+    records: records
+  })
+}
+
+module.exports.create = async (req, res) => {
+  res.render("admin/pages/accounts/create", {
     pageTitle: "Danh sách tài khoản",
     records: records
   })
