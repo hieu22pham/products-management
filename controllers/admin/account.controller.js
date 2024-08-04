@@ -22,3 +22,10 @@ module.exports.create = async (req, res) => {
     pageTitle: "Danh sách tài khoản",
   })
 }
+
+module.exports.createPost = async (req, res) => {
+  const record = new Account(req.body)
+  await record.save()
+
+  res.redirect(`${systemConfig.prefixAdmin}/accounts/`)
+}
