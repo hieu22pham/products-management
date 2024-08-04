@@ -28,4 +28,4 @@ const accountSchema = new mongoose.Schema(
 
 const Account = mongoose.model('Account', accountSchema, "account");
 
-module.exports = Role;
+module.exports = Account;
