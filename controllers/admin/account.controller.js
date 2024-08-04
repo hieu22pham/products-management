@@ -20,6 +20,5 @@ module.exports.index = async (req, res) => {
 module.exports.create = async (req, res) => {
   res.render("admin/pages/accounts/create", {
     pageTitle: "Danh sách tài khoản",
-    records: records
   })
 }
