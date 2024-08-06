@@ -2,9 +2,11 @@ const filterStatusHelper = require("../../helpers/filterStatus")
 const searchHelper = require("../../helpers/search")
 const paginationHelper = require("../../helpers/pagination")
 const Account = require("../../models/account.model")
+const md5 = require("md5")
+
 const Role = require("../../models/roles.model")
 const systemConfig = require("../../config/system/system")
-const md5 = require("md5")
+
 
 module.exports.index = async (req, res) => {
   let find = {
@@ -29,6 +31,7 @@ module.exports.index = async (req, res) => {
         deleted: false
       })
 
+    record.role = role
   }
 
   res.render("admin/pages/accounts/index", {

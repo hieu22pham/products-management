@@ -98,3 +98,15 @@
 .image-preview[src=""] {
   display: none;
 }
+
+.left-200 {
+  margin-left: 200px;
+}
+
+.left-330 {
+  margin-left: 330px;
+}
+
+.w-350 {
+  width: 350px !important;
+}
