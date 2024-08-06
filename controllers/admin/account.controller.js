@@ -3,6 +3,7 @@ const searchHelper = require("../../helpers/search")
 const paginationHelper = require("../../helpers/pagination")
 const Account = require("../../models/account.model")
 const systemConfig = require("../../config/system/system")
+const md5 = require("md5")
 
 module.exports.index = async (req, res) => {
   let find = {
@@ -24,6 +25,8 @@ module.exports.create = async (req, res) => {
 }
 
 module.exports.createPost = async (req, res) => {
+  req.body.password = md5(req.body.password)
+
   const record = new Account(req.body)
   await record.save()
 
