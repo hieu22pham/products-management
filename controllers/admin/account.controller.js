@@ -2,6 +2,7 @@ const filterStatusHelper = require("../../helpers/filterStatus")
 const searchHelper = require("../../helpers/search")
 const paginationHelper = require("../../helpers/pagination")
 const Account = require("../../models/account.model")
+const Role = require("../../models/roles.model")
 const systemConfig = require("../../config/system/system")
 const md5 = require("md5")
 
