@@ -28,10 +28,21 @@ module.exports.create = async (req, res) => {
 }
 
 module.exports.createPost = async (req, res) => {
-  req.body.password = md5(req.body.password)
+  const emailExist = await Account.findOne({
+    email: req.body.email, deleted: false
+  })
 
-  const record = new Account(req.body)
-  await record.save()
+  if (emailExist) {
+    req.flash("error", `Email ${req.body.email} đã tồn tại!`)
+    res.redirect("back")
+  }
+  else {
+    req.body.password = md5(req.body.password)
 
-  res.redirect(`${systemConfig.prefixAdmin}/accounts/`)
+    const record = new Account(req.body)
+    await record.save()
+
+    res.redirect(`${systemConfig.prefixAdmin}/accounts/`)
+  }
+
 }
