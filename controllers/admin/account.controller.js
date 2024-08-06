@@ -19,13 +19,23 @@ module.exports.index = async (req, res) => {
   }, req.query, countProduct
   )
 
-  const records = await Account.find(find).select("-password -token")
-    .limit(objectPagination.limitItem)
+  const records = await Account.find(find).select("-password -token").limit(objectPagination.limitItem)
     .skip(objectPagination.skip)
+
+  for (const record of records) {
+    const role = await Role.findOne(
+      {
+        _id: record.role_id,
+        deleted: false
+      })
+
+    record.role = role
+  }
 
   res.render("admin/pages/accounts/index", {
     pageTitle: "Danh sách tài khoản",
-    records: records
+    records: records,
+    pagination: objectPagination
   })
 }
 
