@@ -11,7 +11,7 @@ module.exports.index = async (req, res) => {
     deleted: false
   }
 
-  const records = await Account.find(find)
+  const records = await Account.find(find).select("-password -token")
 
   res.render("admin/pages/accounts/index", {
     pageTitle: "Danh sách tài khoản",
