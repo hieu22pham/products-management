@@ -29,7 +29,6 @@ module.exports.index = async (req, res) => {
         deleted: false
       })
 
-    record.role = role
   }
 
   res.render("admin/pages/accounts/index", {
