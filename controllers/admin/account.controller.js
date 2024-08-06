@@ -11,7 +11,17 @@ module.exports.index = async (req, res) => {
     deleted: false
   }
 
+  const countProduct = await Account.countDocuments(find)
+
+  let objectPagination = paginationHelper({
+    currentPage: 1,
+    limitItem: 4
+  }, req.query, countProduct
+  )
+
   const records = await Account.find(find).select("-password -token")
+    .limit(objectPagination.limitItem)
+    .skip(objectPagination.skip)
 
   res.render("admin/pages/accounts/index", {
     pageTitle: "Danh sách tài khoản",
