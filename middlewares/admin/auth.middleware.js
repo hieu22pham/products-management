@@ -1,4 +1,4 @@
-const systemConfig = require("../../config/system/system");
+const systemConfig = require("../../config/system/system")
 
 module.exports.requireAuth = (req, res, next) => {
   if (!req.cookies.token) {
