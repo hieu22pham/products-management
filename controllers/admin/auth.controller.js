@@ -37,6 +37,7 @@ module.exports.loginPost = async (req, res) => {
       return;
     }
     else {
+      res.cookie("token", user.token)
       res.redirect(`${systemConfig.prefixAdmin}/dashboard/`)
     }
   }
