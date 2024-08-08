@@ -1,6 +1,6 @@
 const dashboardRoutes = require("./dashboard.route")
 const productRoutes = require("./product.route")
-const authMiddleware = require("../../middlewares/admin/auth.middleware.js")
+const authMiddleware = require("../../middlewares/admin/auth.middlewares.js")
 
 const systemConfig = require("../../config/system/system.js")
 const productCategoryRoutes = require("./product-category.route.js")
