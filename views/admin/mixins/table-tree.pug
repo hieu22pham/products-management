@@ -48,11 +48,11 @@ mixin table-tree(items, level = 1)
         if(role.permissions.includes("products-category_edit"))
           a(
             href=`${prefixAdmin}/products-category/edit/${item.id}`
-            class="btn btn-warning btn-sm"
+            class="btn btn-warning btn-sm ms-2"
             ) Sửa 
         if(role.permissions.includes("products-category_delete"))
           button(
-            class="btn btn-danger btn-sm ms-1" 
+            class="btn btn-danger btn-sm ms-2" 
             button-delete 
             data-id=item.id
           ) Xóa

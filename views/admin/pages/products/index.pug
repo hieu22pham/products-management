@@ -35,10 +35,11 @@ block main
           .col-8
             +form-change-multi(`${prefixAdmin}/products/change-multi?_method=PATCH`)
           .col-4
-            a(
-              href=`${prefixAdmin}/products/create` 
-              class="btn btn-outline-success"
-            ) + Thêm mới
+            if(role.permissions.includes("products_create"))
+              a(
+                href=`${prefixAdmin}/products/create` 
+                class="btn btn-outline-success"
+              ) + Thêm mới
 
         table(
           class="table table-hover table-sm mt-4" 
@@ -102,15 +103,17 @@ block main
                       href=`${prefixAdmin}/products/detail/${item.id}`
                       class="btn btn-secondary btn-sm"
                       ) Chi tiết
-                  a(
-                    href=`${prefixAdmin}/products/edit/${item.id}`
-                    class="btn btn-warning btn-sm"
-                    ) Sửa 
-                  button(
-                    class="btn btn-danger btn-sm ms-1" 
-                    button-delete 
-                    data-id=item.id
-                  ) Xóa
+                  if(role.permissions.includes("products_edit"))
+                    a(
+                      href=`${prefixAdmin}/products/edit/${item.id}`
+                      class="btn btn-warning btn-sm ms-2"
+                      ) Sửa 
+                  if(role.permissions.includes("products_delete"))
+                    button(
+                      class="btn btn-danger btn-sm ms-1 ms-2" 
+                      button-delete 
+                      data-id=item.id
+                    ) Xóa
 
   +pagination()
 
