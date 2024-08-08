@@ -9,18 +9,18 @@
           if(role.permissions.includes("products-category_view"))
             li.nav-item
               a.nav-link(href=`${prefixAdmin}/products-category`) Danh mục sản phẩm
-          if(role.permissions.includes("products-category_view"))
+          if(role.permissions.includes("products_view"))
             li.nav-item
               a.nav-link(href=`${prefixAdmin}/products`) Sản phẩm
           if(role.permissions.includes("products_view"))
             li.nav-item
               a.nav-link(href=`${prefixAdmin}/products/bin`) Thùng rác
-          if(role.permissions.includes("products-category_view"))
-            li.nav-item
-              a.nav-link(href=`${prefixAdmin}/roles`) Nhóm quyền
           if(role.permissions.includes("roles_view"))
             li.nav-item
-              a.nav-link(href=`${prefixAdmin}/roles/permissions`) Phân quyền
+              a.nav-link(href=`${prefixAdmin}/roles`) Nhóm quyền
           if(role.permissions.includes("roles_permissions"))
+            li.nav-item
+              a.nav-link(href=`${prefixAdmin}/roles/permissions`) Phân quyền
+          if(role.permissions.includes("accounts_view"))
             li.nav-item
               a.nav-link(href=`${prefixAdmin}/accounts`) Danh sách tài khoản
