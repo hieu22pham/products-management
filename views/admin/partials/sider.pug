@@ -6,15 +6,21 @@
         ul.nav.flex-column
           li.nav-item
             a.nav-link.active(href=`${prefixAdmin}/dashboard`) Tổng quan
-          li.nav-item
-            a.nav-link(href=`${prefixAdmin}/products-category`) Danh mục sản phẩm
-          li.nav-item
-            a.nav-link(href=`${prefixAdmin}/products`) Sản phẩm
-          li.nav-item
-            a.nav-link(href=`${prefixAdmin}/products/bin`) Thùng rác
-          li.nav-item
-            a.nav-link(href=`${prefixAdmin}/roles`) Nhóm quyền
-          li.nav-item
-            a.nav-link(href=`${prefixAdmin}/roles/permissions`) Phân quyền
-          li.nav-item
-            a.nav-link(href=`${prefixAdmin}/accounts`) Danh sách tài khoản
+          if(role.permissions.includes("products-category_view"))
+            li.nav-item
+              a.nav-link(href=`${prefixAdmin}/products-category`) Danh mục sản phẩm
+          if(role.permissions.includes("products-category_view"))
+            li.nav-item
+              a.nav-link(href=`${prefixAdmin}/products`) Sản phẩm
+          if(role.permissions.includes("products_view"))
+            li.nav-item
+              a.nav-link(href=`${prefixAdmin}/products/bin`) Thùng rác
+          if(role.permissions.includes("products-category_view"))
+            li.nav-item
+              a.nav-link(href=`${prefixAdmin}/roles`) Nhóm quyền
+          if(role.permissions.includes("roles_view"))
+            li.nav-item
+              a.nav-link(href=`${prefixAdmin}/roles/permissions`) Phân quyền
+          if(role.permissions.includes("roles_permissions"))
+            li.nav-item
+              a.nav-link(href=`${prefixAdmin}/accounts`) Danh sách tài khoản
