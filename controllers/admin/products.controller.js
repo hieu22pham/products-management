@@ -6,6 +6,7 @@ const Product = require("../../models/product.model")
 const systemConfig = require("../../config/system/system")
 const createTreeHelper = require("../../helpers/createTree")
 const ProductCategory = require("../../models/product-category.model")
+const Account = require("../../models/account.model")
 
 module.exports.index = async (req, res) => {
   const filterStatus = filterStatusHelper(req.query)
@@ -49,6 +50,10 @@ module.exports.index = async (req, res) => {
   const products = await Products.find(find).sort(sort)
     .limit(objectPagination.limitItem)
     .skip(objectPagination.skip)
+
+    for(const product in products){
+      const user = await Account.findOne({id: pro})
+    }
 
   res.render("admin/pages/products/index", {
     pageTitle: "Danh sách sản phẩm",
@@ -142,7 +147,7 @@ module.exports.createPost = async (req, res) => {
   }
 
   req.body.createdBy = {
-    account_id: req.locals.user.id
+    account_id: res.locals.user.id
   }
 
   const product = new Product(req.body)
