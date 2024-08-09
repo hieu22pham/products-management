@@ -51,8 +51,12 @@ module.exports.index = async (req, res) => {
     .limit(objectPagination.limitItem)
     .skip(objectPagination.skip)
 
-  for (const product in products) {
-    const user = await Account.findOne({ id: product.createdBy.account_id })
+  for (const product of products) {
+    const account = await Account.findOne({ _id: product.createdBy.account_id })
+
+    if (account) {
+      product.accountFullName = account.fullName
+    }
   }
 
   res.render("admin/pages/products/index", {
