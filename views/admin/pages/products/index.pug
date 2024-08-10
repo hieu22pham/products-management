@@ -102,7 +102,6 @@ block main
                       class="badge bg-warning") Dừng hoạt động
                   td 
                     p #{item.accountFullName}
-                    p #{moment(item.createdBy.created_at).format("DD/MM/YYYY HH:mm:ss")}
                   td 
                     a(
                         href=`${prefixAdmin}/products/detail/${item.id}`
