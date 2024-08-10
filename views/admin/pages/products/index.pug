@@ -100,7 +100,9 @@ block main
                       data-id=item.id
                       button-change-status 
                       class="badge bg-warning") Dừng hoạt động
-                  td #{item.accountFullName}
+                  td 
+                    p #{item.accountFullName}
+                    p #{item.createdBy.createdAt}
                   td 
                     a(
                         href=`${prefixAdmin}/products/detail/${item.id}`
