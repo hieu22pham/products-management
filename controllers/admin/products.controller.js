@@ -119,7 +119,8 @@ module.exports.deleteItem = async (req, res) => {
     {
       deleted: true,
       deletedBy: {
-
+        account_id: req.locals.user.id,
+        deletedAt: new Date()
       }
     }
   )
