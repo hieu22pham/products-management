@@ -21,7 +21,7 @@ const productSchema = new mongoose.Schema(
     },
     createdBy: {
       account_id: String,
-      created_at: {
+      createdAt: {
         type: Date,
         default: Date.now
       }
@@ -32,7 +32,7 @@ const productSchema = new mongoose.Schema(
     },
     deletedBy: {
       account_id: String,
-      deleted_at: {
+      deletedAt: {
         type: Date,
         default: Date.now
       }
