@@ -103,7 +103,7 @@ block main
                       class="badge bg-warning") Dừng hoạt động
                   td 
                     p #{item.accountFullName}
-                    +formatDateTime(item.createdBy.create_at)
+                    +formatDate(item.createdBy.created_at)
                   td 
                     a(
                         href=`${prefixAdmin}/products/detail/${item.id}`
