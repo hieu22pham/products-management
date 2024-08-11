@@ -34,7 +34,6 @@ const productSchema = new mongoose.Schema(
       account_id: String,
       deletedAt: {
         type: Date,
-        default: Date.now
       }
     }
   }, {
