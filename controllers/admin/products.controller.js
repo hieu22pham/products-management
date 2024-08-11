@@ -116,7 +116,12 @@ module.exports.deleteItem = async (req, res) => {
 
   // await Products.deleteOne({ _id: id })
   await Products.updateOne({ _id: id },
-    { deleted: true, deletedAt: new Date() }
+    {
+      deleted: true,
+      deletedBy: {
+
+      }
+    }
   )
 
   req.flash("success", `Xóa sản phẩm thành công!`)
