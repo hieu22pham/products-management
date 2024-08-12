@@ -71,6 +71,11 @@ module.exports.changeStatus = async (req, res) => {
   const status = req.params.status
   const id = req.params.id
 
+  const updatedBy = {
+    account_id: res.locals.user.id,
+    updatedAt: new Date()
+  }
+
   await Products.updateOne({ _id: id }, { status: status })
   req.flash("success", "Cập nhật thành công!")
 
@@ -210,7 +215,7 @@ module.exports.editPatch = async (req, res) => {
       updatedAt: new Date()
     }
     await Product.updateOne({ _id: id }, {
-      ...req.body, 
+      ...req.body, $push: { updatedBy: updatedBy }
     })
 
   } catch (err) {
