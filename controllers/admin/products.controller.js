@@ -57,6 +57,9 @@ module.exports.index = async (req, res) => {
     if (account) {
       product.accountFullName = account.fullName
     }
+
+    const updatedBy = product.updatedBy[product.updatedBy.length - 1]
+    const accountUpdated = await Account.findOne(_id: updatedBy.account_id)
   }
 
   res.render("admin/pages/products/index", {
