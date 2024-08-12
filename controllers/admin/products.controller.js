@@ -205,8 +205,13 @@ module.exports.editPatch = async (req, res) => {
   console.log("req:", req.body)
   console.log("id:", id)
   try {
-
-    await Product.updateOne({ _id: id }, req.body)
+    const updatedBy = {
+      account_id: res.locals.user.id,
+      updatedAt: new Date()
+    }
+    await Product.updateOne({ _id: id }, {
+      ...req.body, 
+    })
 
   } catch (err) {
     console.error('Error updating product:', err);
