@@ -76,7 +76,10 @@ module.exports.changeStatus = async (req, res) => {
     updatedAt: new Date()
   }
 
-  await Products.updateOne({ _id: id }, { status: status })
+  await Products.updateOne({ _id: id }, {
+    status: status,
+    $push: { updatedBy: updatedBy }
+  })
   req.flash("success", "Cập nhật thành công!")
 
   res.redirect("back")
@@ -86,13 +89,24 @@ module.exports.changeMulti = async (req, res) => {
   const type = req.body.type
   const ids = req.body.ids.split(", ")
 
+  const updatedBy = {
+    account_id: res.locals.user.id,
+    updatedAt: new Date()
+  }
+
   switch (type) {
     case "active":
-      await Products.updateMany({ _id: { $in: ids } }, { status: "active" })
+      await Products.updateMany({ _id: { $in: ids } }, {
+        status: "active",
+        $push: { updatedBy: updatedBy }
+      })
       req.flash("success", `Cập nhật thành công ${ids.length} sản phẩm!`)
       break;
     case "inactive":
-      await Products.updateMany({ _id: { $in: ids } }, { status: "inactive" })
+      await Products.updateMany({ _id: { $in: ids } }, {
+        status: "inactive",
+        $push: { updatedBy: updatedBy }
+      })
       req.flash("success", `Cập nhật thành công ${ids.length} sản phẩm!`)
       break;
     case "delete-all":
@@ -104,7 +118,10 @@ module.exports.changeMulti = async (req, res) => {
       for (const item of ids) {
         let [id, position] = item.split("-")
         postion = parseInt(position)
-        await Products.updateOne({ _id: id }, { position: position })
+        await Products.updateOne({ _id: id }, {
+          position: position,
+          $push: { updatedBy: updatedBy }
+        })
         req.flash("success", `Đổi vị trí thành công ${ids.length} sản phẩm!`)
       }
       break;
