@@ -9,5 +9,9 @@ header.header
         div(class="text-end")
           a(
             href=`${prefixAdmin}/auth/logout`
+            class="btn btn-sm btn-danger ms-2"
+          ) #{user.fullName}
+          a(
+            href=`${prefixAdmin}/auth/logout`
             class="btn btn-sm btn-danger"
           ) Đăng xuất
