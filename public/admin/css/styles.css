@@ -110,3 +110,11 @@
 .w-350 {
   width: 350px !important;
 }
+
+.dropdown-menu .dropdown-item:hover {
+  color: #007bff;
+}
+
+.btn-dangXuat:hover {
+  color: red !important;
+}
