@@ -5,7 +5,6 @@ block main
 
   if(user.avatar)
     img(src=user.avatar width="150px" class="mb-3")
-  else 
 
   if(user.fullName)
     p Họ tên: <b>#{user.fullName}</b>
@@ -21,8 +20,11 @@ block main
     span 
       <b>#{user.status === "active" ? "Hoạt động" : "Dừng hoạt động"}</b>
     
-  if(role.tittle)
-    p Phân quyền: <b>#{role.tittle} </b>
+  if(role.title)
+    p Phân quyền: <b>#{role.title} </b>
   
-  a(href=`${prefixAdmin}/my-account/edit`)
+  a(
+    href=`${prefixAdmin}/my-account/edit`
+    class="btn btn-primary"
+  ) Chỉnh sửa thông tin
     
