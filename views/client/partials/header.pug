@@ -16,17 +16,17 @@ header.header
             li(class="sub-menu")
               -const pathProduct = "/products"
               a(href="/products" ) Sản phẩm 
-              +sub-menu(layoutProductsCategory)
-              ul 
-                li 
-                  a(href="/product/slug1") Mục 1
-                  ul 
-                    li 
-                      a(href="/product/slug1-1") Mục 1-1
-                    li 
-                      a(href="/product/slug1-2") Mục 1-2
-                      ul 
-                        li 
-                          a(href="/product/slug1-1") Mục 1-2-1
-                        li 
-                          a(href="/product/slug1-2") Mục 1-2-2
+              +sub-menu(layoutProductsCategory, pathProduct)
+              //- ul 
+              //-   li 
+              //-     a(href="/product/slug1") Mục 1
+              //-     ul 
+              //-       li 
+              //-         a(href="/product/slug1-1") Mục 1-1
+              //-       li 
+              //-         a(href="/product/slug1-2") Mục 1-2
+              //-         ul 
+              //-           li 
+              //-             a(href="/product/slug1-1") Mục 1-2-1
+              //-           li 
+              //-             a(href="/product/slug1-2") Mục 1-2-2
