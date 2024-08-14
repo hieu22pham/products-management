@@ -15,20 +15,20 @@ block main
 
     .card.mb-3 
       .card-header Bộ lọc và tìm kiếm 
-        .card-body 
-          .row
-            .col-6
-              +filter-status(filterStatus)
-            
-            .col-6
-              +search()
+      .card-body 
+        .row
+          .col-6
+            +filter-status(filterStatus)
+          
+          .col-6
+            +search()
 
-      .card.mb-3
-        .card-header Sắp xếp 
-        .card-body 
-          .row 
-            .col-4 
-              +sort()
+    .card.mb-3(class="mt-3")
+      .card-header Sắp xếp 
+      .card-body 
+        .row 
+          .col-4 
+            +sort()
               
     .card.mb-1 
       .card-header Sản phẩm
