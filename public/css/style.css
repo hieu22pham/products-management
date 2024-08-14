@@ -1,33 +1,36 @@
-.header{
+.header {
   margin-top: 20px;
 }
 
-.header .inner-logo img{
+.header .inner-logo img {
   width: 50px;
   height: 50px;
   object-fit: cover;
 }
 
-.header .inner-menu{
- 
+.header .inner-menu {}
 
-}
 
-.header .inner-menu ul{
+.header .inner-menu .flex {
   display: flex;
   margin-top: 10px;
   list-style: none;
 }
 
-.header .inner-menu ul li{
+.header .inner-menu ul {
+  list-style: none;
+}
+
+
+.header .inner-menu ul li {
   margin-right: 40px;
 }
 
-.header .inner-menu ul li a{
+.header .inner-menu ul li a {
   text-decoration: none;
 }
 
-.footer{
+.footer {
   width: 100vw;
   height: 50px;
   background-color: black;
@@ -54,44 +57,86 @@
 
 
 
-.product-item .inner-image{
+.product-item .inner-image {
   position: absolute;
   left: 20px;
   width: 200px;
 }
 
-.product-item .inner-image img{
+.product-item .inner-image img {
   width: 200px;
   height: 180px;
   object-fit: cover;
 }
 
-.all-content{
+.all-content {
   position: absolute;
   left: 20px;
 }
 
-.product-item .inner-title{
+.product-item .inner-title {
   /* position: absolute; */
   font-size: 17px;
   margin-top: 190px;
   color: blue;
 }
 
-.product-item .inner-price-new{
+.product-item .inner-price-new {
   margin-top: 10px;
   left: 30px;
   color: green;
 }
 
-.product-item .inner-price-old{
+.product-item .inner-price-old {
   margin-top: 10px;
   color: red;
   text-decoration: line-through;
 }
 
-.product-item .inner-discount{
+.product-item .inner-discount {
   margin-top: 10px;
 }
 
+/* css header menu san pham*/
+.sub-menu {
+  position: relative;
+  z-index: 999;
+}
 
+.sub-menu ul {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #eae9e9;
+  min-width: 180px;
+}
+
+.sub-menu ul li {
+  padding: 10px;
+  border-bottom: 1px #ddd solid;
+}
+
+.sub-menu:hover>ul {
+  display: block;
+}
+
+.sub-menu ul li {
+  position: relative;
+}
+
+.sub-menu ul li ul {
+  right: 100%;
+  top: 0;
+}
+
+.sub-menu ul li:hover>ul {
+  display: block;
+}
+
+
+
+/* end css header menu san pham*/
