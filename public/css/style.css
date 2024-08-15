@@ -69,6 +69,8 @@
   object-fit: cover;
 }
 
+.product-item .item.featured {}
+
 .all-content {
   position: absolute;
   left: 20px;
@@ -79,6 +81,18 @@
   font-size: 17px;
   margin-top: 190px;
   color: blue;
+}
+
+.product-item .inner-featured {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: green;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  padding: 3px 6px;
 }
 
 .product-item .inner-price-new {

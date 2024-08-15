@@ -8,10 +8,18 @@ module.exports.index = async (req, res) => {
     status: "active"
   })
 
-  const newProducts = productsHelper.priceNewProducts(producsFeatured)
+  const newproducsFeatured = productsHelper.priceNewProducts(producsFeatured)
+
+  const productsNew = await Product.find({
+    deleted: false,
+    status: "active"
+  }).sort({ position: "desc" }).limit(6)
+
+  const newproductsNew = productsHelper.priceNewProducts(productsNew)
 
   res.render("client/pages/home/index", {
     pageTitle: "Trang chủ",
-    producsFeatured: newProducts
+    producsFeatured: newproducsFeatured,
+    productsNew: newproductsNew
   })
 }
