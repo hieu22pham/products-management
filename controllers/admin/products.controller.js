@@ -227,6 +227,7 @@ module.exports.edit = async (req, res) => {
 
 module.exports.editPatch = async (req, res) => {
   const id = req.params.id;
+  console.log(id)
   req.body.price = parseInt(req.body.price)
   req.body.discountPercentage = parseInt(req.body.discountPercentage)
   req.body.stock = parseInt(req.body.stock)

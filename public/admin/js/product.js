@@ -275,9 +275,10 @@ if (sort) {
 //category selected in edit category
 
 const categorySelect = document.getElementById('parent_idEdit');
+const value = document.getElementById('parent_idEdit1');
 
 if (categorySelect) {
-  const selectedText = categorySelect.name;
+  const selectedText = value.name;
 
   console.log('Selected value:', selectedText);
 
@@ -330,54 +331,31 @@ if (categorySelect) {
 }
 //end selected
 
-
 //category selected in edit product
 const categorySelectInEditProduct = document.getElementById('product_category_id');
 
-
 if (categorySelectInEditProduct) {
-  const selectedTextInEditProduct = categorySelectInEditProduct.name;
+  const selectedTextInEditProduct = categorySelectInEditProduct.options;
 
   console.log('Selected value:', selectedTextInEditProduct);
   const optionsInEditProduct = categorySelectInEditProduct.options;
-  const optionValuesInEditProduct = [];
   const optionTextsInEditProduct = [];
 
   for (let i = 0; i < optionsInEditProduct.length; i++) {
     optionTextsInEditProduct.push(optionsInEditProduct[i].text);   // Lấy văn bản của option
   }
 
-  function TrimCharacterOccurrences(word) {
-    var charCount = 0;
-    let newWord = "";
-
-    let regex = /[A-Z]/; 
-    var t = -1;
-    for (var i = 0; i < word.length; i++) {
-      if (regex.test(word[i])) {
-        t = i;
-      }
-    }
-
-    for (var i = t; i < word.length; i++) {
-      newWord += word[i];
-    }
-
-    console.log(newWord)
-    return newWord;
-  }
-
-  var index2 = -1;
-  for (let i = 0; i < optionsInEditProduct.length; i++) {
-    console.log(TrimCharacterOccurrences(optionTextsInEditProduct[i]))
-    if (selectedTextInEditProduct == (TrimCharacterOccurrences(optionTextsInEditProduct[i]))) {
+  var index2 = -1
+  for (let i = 0; i < optionTextsInEditProduct.length; i++) {
+    if (optionTextsInEditProduct[i].includes(selectedTextInEditProduct)) {
       index2 = i;
-      console.log(i)
+      break;
     }
   }
 
-  optionsInEditProduct[index2].selected = true
+  console.log("i: ", index2)
+  if (index2 != -1)
+    optionsInEditProduct[index2].selected = true
 }
-
 //end selected
 

@@ -26,14 +26,16 @@ block main
       div(class="form-group")
         label(for="parent_idEdit") Danh mục cha
         select(
-          name=data.title
+          name="parent_id"
           id="parent_idEdit"
           class="form-control"
         ) 
-          option(value="") -- Chọn danh mục cha --
+          option(value="" ) -- Chọn danh mục cha --
             if(records)
               +select-tree(records)
       
+      input(name=data.title class="d-none" id="parent_idEdit1")
+
       div(class="form-group")
         label(for="desc") Mô tả
         textarea(
@@ -101,7 +103,5 @@ block main
           type="submit"
           class="btn btn-primary"
         ) Chỉnh sửa
-
- 
 
   script(src="/admin/js/product.js")
