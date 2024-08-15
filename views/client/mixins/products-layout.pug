@@ -1,0 +1,13 @@
+mixin product-grid(products)
+  .row 
+      each item in products
+        .col-3.mb-3 
+          .product-item 
+            .inner-image 
+              img(src=`${item.thumbnail}`)
+            div(class="all-content")
+              h4.inner-title 
+                a(href=`/products/${item.slug}`) #{item.title}
+              .inner-price-new <b>#{item.priceNew}$</b>
+              .inner-price-old <b>#{item.price}$</b>
+              .inner-discount.badge.bg-danger -#{item.discountPercentage}%
