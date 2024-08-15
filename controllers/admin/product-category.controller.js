@@ -30,19 +30,26 @@ module.exports.create = async (req, res) => {
 }
 
 module.exports.createPost = async (req, res) => {
+  const permissions = res.locals.role.permissions
 
-  if (req.body.position == "") {
-    const countProducts = await ProductCategory.countDocuments();
+  if (permissions.includes("products-category_create")) {
+    if (req.body.position == "") {
+      const countProducts = await ProductCategory.countDocuments();
 
-    req.body.position = countProducts + 1
-  } else {
-    req.body.position = parseInt(req.body.position)
+      req.body.position = countProducts + 1
+    } else {
+      req.body.position = parseInt(req.body.position)
+    }
+
+    const record = new ProductCategory(req.body)
+    await record.save()
+
+    res.redirect("/admin/products-category")
   }
-
-  const record = new ProductCategory(req.body)
-  await record.save()
-
-  res.redirect("/admin/products-category")
+  else {
+    res.redirect("back")
+    return;
+  }
 }
 
 module.exports.edit = async (req, res) => {
