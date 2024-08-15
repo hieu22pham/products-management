@@ -333,9 +333,10 @@ if (categorySelect) {
 
 //category selected in edit product
 const categorySelectInEditProduct = document.getElementById('product_category_id');
+const valueCategory = document.getElementById('product_category_id1');
 
 if (categorySelectInEditProduct) {
-  const selectedTextInEditProduct = categorySelectInEditProduct.options;
+  const selectedTextInEditProduct = valueCategory.name;
 
   console.log('Selected value:', selectedTextInEditProduct);
   const optionsInEditProduct = categorySelectInEditProduct.options;
