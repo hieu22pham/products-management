@@ -37,6 +37,6 @@ module.exports.detail = async (req, res) => {
 
 }
 
-module.exports.detail = async (req, res) => {
-  
+module.exports.category = async (req, res) => {
+  res.send("Ok")
 }
