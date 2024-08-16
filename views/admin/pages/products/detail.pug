@@ -4,6 +4,8 @@ include ../../mixins/alert.pug
 block main
   if(product.title)
     h3 #{product.title}
+  if(categoryTitle)
+    h3 #{categoryTitle}
   if(product.price)
     div() Giá: <b>#{product.price}$</b>
   if(product.discountPercentage)

@@ -196,7 +196,6 @@ module.exports.createPost = async (req, res) => {
 }
 
 module.exports.edit = async (req, res) => {
-  try {
     const records = await ProductCategory.find({
       deleted: false
     })
@@ -220,9 +219,7 @@ module.exports.edit = async (req, res) => {
       category: category,
       categoryName: categoryName
     })
-  } catch (error) {
-    res.redirect(`${systemConfig.prefixAdmin}/products`)
-  }
+ 
 }
 
 module.exports.editPatch = async (req, res) => {
@@ -253,21 +250,25 @@ module.exports.editPatch = async (req, res) => {
 
 module.exports.detail = async (req, res) => {
   const id = req.params.id
-  try {
-    const find = {
-      deleted: false,
-      _id: req.params.id
-    }
-
-    const product = await Product.findOne(find)
-
-    res.render("admin/pages/products/detail", {
-      pageTitle: product.title,
-      product: product
-    })
-  } catch (error) {
-    res.redirect(`${systemConfig.prefixAdmin}/products`)
+  const find = {
+    deleted: false,
+    _id: req.params.id
   }
+
+  const product = await Product.findOne(find)
+  var category = { title: "" }
+  if (product.product_category_id) {
+    category = await ProductCategory.findOne({
+      _id: product.product_category_id,
+      deleted: false
+    })
+  }
+
+  res.render("admin/pages/products/detail", {
+    pageTitle: product.title,
+    product: product,
+    categoryTitle: category.title
+  })
 }
 
 module.exports.productsBin = async (req, res) => {
