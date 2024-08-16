@@ -36,3 +36,7 @@ module.exports.detail = async (req, res) => {
   }
 
 }
+
+module.exports.detail = async (req, res) => {
+  
+}
