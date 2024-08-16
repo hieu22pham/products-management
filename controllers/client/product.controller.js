@@ -1,4 +1,5 @@
 const productsHelper = require("../../helpers/products")
+const ProductCategory = require("../../models/product-category.model")
 
 const Product = require("../../models/product.model")
 module.exports.index = async (req, res) => {
@@ -38,5 +39,7 @@ module.exports.detail = async (req, res) => {
 }
 
 module.exports.category = async (req, res) => {
+  const category = ProductCategory.findOne({ slug: req.body.slugCategory })
+
   res.send("Ok")
 }
