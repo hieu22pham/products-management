@@ -39,6 +39,7 @@ module.exports.detail = async (req, res) => {
 }
 
 module.exports.category = async (req, res) => {
+  const category = ProductCategory.findOne({ slug: req.body.slugCategory })
 
   res.send("Ok")
 }
