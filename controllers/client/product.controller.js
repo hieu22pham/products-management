@@ -53,7 +53,12 @@ module.exports.category = async (req, res) => {
     })
   }
 
-  var products
+  let allSub = [...subs]
+  for (const sub of subs){
+    
+  }
+
+    var products
 
   if (req.params.slugCategory) {
     products = await Product.find({
