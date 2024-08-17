@@ -50,7 +50,7 @@ module.exports.category = async (req, res) => {
     products = await Product.find({
       deleted: false,
       product_category_id: category.id
-    })
+    }).sort({ position: "desc" })
   } else {
     products = await Product.find({
       deleted: false,
