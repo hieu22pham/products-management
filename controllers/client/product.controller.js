@@ -45,7 +45,8 @@ module.exports.category = async (req, res) => {
   })
 
   var products
-  if (category.id) {
+
+  if (req.params.slugCategory) {
     products = await Product.find({
       deleted: false,
       product_category_id: category.id
