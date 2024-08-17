@@ -44,10 +44,17 @@ module.exports.category = async (req, res) => {
     deleted: false
   })
 
-  const products = await Product.find({
-    deleted: false,
-    product_category_id: category.id
-  }).sort({ position: "desc" })
+  var products
+  if (category.id) {
+    products = await Product.find({
+      deleted: false,
+      product_category_id: category.id
+    })
+  } else {
+    products = await Product.find({
+      deleted: false,
+    })
+  }
 
   const newProducts = productsHelper.priceNewProducts(products)
 
