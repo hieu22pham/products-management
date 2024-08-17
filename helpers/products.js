@@ -7,3 +7,4 @@ module.exports.priceNewProducts = (products) => {
 
   return newProducts
 }
+
