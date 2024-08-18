@@ -46,16 +46,19 @@ module.exports.category = async (req, res) => {
     status: "active"
   })
 
-  const listSubCategory = await productCategoryHelper.getSubCategory(category.id)
-  const listSubCategoryId = listSubCategory.map(item => item.id)
 
   var products
 
   if (req.params.slugCategory) {
-    products = await Product.find({
-      deleted: false,
-      product_category_id: { $in: [category.id, ...listSubCategoryId] },
-    }).sort({ position: "desc" })
+    const listSubCategory = await productCategoryHelper.getSubCategory(category.id)
+    const listSubCategoryId = listSubCategory.map(item => item.id)
+    if (listSubCategoryId) {
+      products = await Product.find({
+        deleted: false,
+        product_category_id: { $in: [category.id, ...listSubCategoryId] },
+      }).sort({ position: "desc" })
+    } 
+
   } else {
     products = await Product.find({
       deleted: false,
