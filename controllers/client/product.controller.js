@@ -60,6 +60,9 @@ module.exports.category = async (req, res) => {
         product_category_id: { $in: [category.id, ...listSubCategoryId] },
       }).sort({ position: "desc" })
     } else {
+      products = await Product.find({
+        deleted: false,
+      }).sort({ position: "desc" })
       console.log("Loi")
     }
 
