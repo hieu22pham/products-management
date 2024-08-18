@@ -1,6 +1,7 @@
 const productsHelper = require("../../helpers/products")
 const ProductCategory = require("../../models/product-category.model")
 const Product = require("../../models/product.model")
+const productCategoryHelper = require("../../helpers/product-category")
 
 module.exports.index = async (req, res) => {
   const products = await Product.find({
@@ -45,27 +46,12 @@ module.exports.category = async (req, res) => {
     status: "active"
   })
 
-  const getSubCategory = async (parentId) => {
-    const subs = await ProductCategory.find({
-      parent_id: parentId,
-      deleted: false,
-      status: "active"
-    })
-
-    let allSub = [...subs]
-    for (const sub of subs) {
-      const childs = await getSubCategory(sub.id)
-      allSub = allSub.concat(childs)
-    }
-
-    return allSub;
-  }
+  const listSubCategory = await productCategoryHelper.getSubCategory(category.id)
+  const listSubCategoryId = listSubCategory.map(item => item.id)
 
   var products
 
   if (req.params.slugCategory) {
-    const listSubCategory = await getSubCategory(category.id)
-    const listSubCategoryId = listSubCategory.map(item => item.id)
     products = await Product.find({
       deleted: false,
       product_category_id: { $in: [category.id, ...listSubCategoryId] },
