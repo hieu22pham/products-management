@@ -3,6 +3,7 @@ module.exports.createPost = (req, res, next) => {
     req.flash("error", "Vui lòng nhập tiêu đề");
     res.redirect("back")
 
+    return;
   }
 
   if (!req.body.product_category_id) {
