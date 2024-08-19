@@ -10,7 +10,6 @@ module.exports.createPost = (req, res, next) => {
     req.flash("error", "Vui lòng chọn danh mục!");
     res.redirect("back")
 
-    return;
   }
 
   next();
