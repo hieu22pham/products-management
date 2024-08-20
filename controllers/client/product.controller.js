@@ -66,7 +66,6 @@ module.exports.category = async (req, res) => {
         products: newProducts
       })
     }
-
   } else {
     products = await Product.find({
       deleted: false,
