@@ -52,7 +52,6 @@ module.exports.category = async (req, res) => {
     console.log("slug", req.params.slugCategory)
     if (category) {
       listSubCategory = await productCategoryHelper.getSubCategory(category.id)
-      const listSubCategoryId = listSubCategory.map(item => item.id)
       products = await Product.find({
         deleted: false,
         product_category_id: { $in: [category.id, ...listSubCategoryId] },
