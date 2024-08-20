@@ -55,6 +55,7 @@ module.exports.category = async (req, res) => {
       const listSubCategoryId = listSubCategory.map(item => item.id)
       products = await Product.find({
         deleted: false,
+        product_category_id: { $in: [category.id, ...listSubCategoryId] },
       }).sort({ position: "desc" })
       console.log("Ok")
 
