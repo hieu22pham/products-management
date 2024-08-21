@@ -61,7 +61,6 @@ module.exports.category = async (req, res) => {
 
       res.render("client/pages/products/index.pug", {
         pageTitle: "",
-        products: newProducts
       })
     }
   } else {
