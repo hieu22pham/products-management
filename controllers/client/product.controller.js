@@ -66,6 +66,7 @@ module.exports.category = async (req, res) => {
     }
   } else {
     products = await Product.find({
+      deleted: false,
     }).sort({ position: "desc" })
 
     const newProducts = productsHelper.priceNewProducts(products)
