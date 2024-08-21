@@ -60,7 +60,6 @@ module.exports.category = async (req, res) => {
       const newProducts = productsHelper.priceNewProducts(products)
 
       res.render("client/pages/products/index.pug", {
-        pageTitle: "",
         products: newProducts
       })
     }
