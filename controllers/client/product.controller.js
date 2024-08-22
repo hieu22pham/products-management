@@ -54,6 +54,7 @@ module.exports.category = async (req, res) => {
       listSubCategory = await productCategoryHelper.getSubCategory(category.id)
       const listSubCategoryId = listSubCategory.map(item => item.id)
       products = await Product.find({
+        product_category_id: { $in: [category.id, ...listSubCategoryId] },
         deleted: false,
       }).sort({ position: "desc" })
 
@@ -76,4 +77,12 @@ module.exports.category = async (req, res) => {
       products: newProducts
     })
   }
+}
+
+module.exports.category = async (req, res) => {
+  const category = await ProductCategory.findOne({
+    slug: req.params.slugCategory,
+    deleted: false,
+    status: "active"
+  })
 }
