@@ -15,7 +15,7 @@ block main
   if(product.stock == 0)
     div(class="mb-3") <b>Hết hàng, vui lòng quay lại sau! </b>
   else
-    div(class="mb-3") Số lượng: <b>#{product.stock}</b>
+    div(class="mb-3") Số lượng: <b>#{product.stock} sản phẩm</b>
   if(product.thumbnail)
     div(class="mb-3") 
       img(src=product.thumbnail style="width: 150px")
@@ -27,3 +27,20 @@ block main
       href=`${prefixAdmin}/products/edit/${product.id}`
       class="btn btn-warning btn-sm"
       ) Sửa 
+
+  form(
+    action=`/cart/add/${product.id}`
+    method="POST"
+  )
+    input(
+      class="form-control mb-2"
+      type="number"
+      name="quantity"
+      value="1"
+      min="1"
+      max=product.stock
+    )
+    button(
+      type="submit"
+      class="btn btn-success btn-block"
+    ) Thêm vào giỏ hàng
