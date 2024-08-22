@@ -35,7 +35,7 @@ module.exports.detail = async (req, res) => {
         deleted: false
       })
 
-      product.categoryName = category.title
+      product.categoryProduct = category
     }
 
     productsHelper.priceNewProduct(product)

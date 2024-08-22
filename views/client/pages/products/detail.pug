@@ -2,8 +2,8 @@ extends ../../layouts/default.pug
 include ../../mixins/box-head.pug
 
 block main
-  if(product.categoryName )
-    h3 #{product.categoryName }
+  if(product.categoryProduct.title )
+    a(href=`/products/${product.categoryProduct.slug}`) #{product.categoryProduct.title}
   if(product.title)
     h3 #{product.title}
   if(product.price)
