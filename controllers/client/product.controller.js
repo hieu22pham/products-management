@@ -19,11 +19,10 @@ module.exports.index = async (req, res) => {
 }
 
 module.exports.detail = async (req, res) => {
-
   try {
     const find = {
       deleted: false,
-      slug: req.params.slug,
+      slug: req.params.slugProduct,
       status: "active"
     }
 
@@ -34,6 +33,7 @@ module.exports.detail = async (req, res) => {
       product: product
     })
   } catch (error) {
+    console.log(error)
     res.redirect(`/products`)
   }
 
@@ -77,12 +77,4 @@ module.exports.category = async (req, res) => {
       products: newProducts
     })
   }
-}
-
-module.exports.category = async (req, res) => {
-  const category = await ProductCategory.findOne({
-    slug: req.params.slugCategory,
-    deleted: false,
-    status: "active"
-  })
 }

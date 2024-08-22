@@ -7,7 +7,7 @@ mixin product-item(item)
               .inner-featured Nổi bật
             div(class="all-content")
               h4.inner-title 
-                a(href=`/products/${item.slug}`) #{item.title}
+                a(href=`/products/detail/${item.slug}`) #{item.title}
               .inner-price-new <b>#{item.priceNew}$</b>
               .inner-price-old <b>#{item.price}$</b>
               .inner-discount.badge.bg-danger -#{item.discountPercentage}%
