@@ -2,6 +2,7 @@ const productsHelper = require("../../helpers/products")
 const ProductCategory = require("../../models/product-category.model")
 const Product = require("../../models/product.model")
 const productCategoryHelper = require("../../helpers/product-category")
+const Category = require("../../models/product-category.model")
 
 module.exports.index = async (req, res) => {
   const products = await Product.find({
@@ -27,6 +28,17 @@ module.exports.detail = async (req, res) => {
     }
 
     const product = await Product.findOne(find)
+    if (product.product_category_id) {
+      const category = await Category.findOne({
+        _id: product.product_category_id,
+        status: "active",
+        deleted: false
+      })
+
+      product.categoryName = category.title
+    }
+
+    productsHelper.priceNewProduct(product)
 
     res.render("client/pages/products/detail", {
       pageTitle: product.title,

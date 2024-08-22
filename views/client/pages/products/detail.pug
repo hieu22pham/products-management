@@ -2,22 +2,24 @@ extends ../../layouts/default.pug
 include ../../mixins/box-head.pug
 
 block main
+  if(product.categoryName )
+    h3 #{product.categoryName }
   if(product.title)
     h3 #{product.title}
   if(product.price)
-    div(class="mb-3") Giá: <b>#{product.price}$</b>
+    div(class="mb-3") Giá: <b>#{product.price}đ</b>
+  if(product.priceNew)
+    div(class="mb-3") Giá mới: <b>#{product.priceNew}$</b>
   if(product.discountPercentage)
-    div(class="mb-3") Giảm giá: <b>#{product.discountPercentage}</b>
-  if(product.discountPercentage)
-    div(class="mb-3") Giảm giá: <b>#{product.discountPercentage}</b>
-  if(product.stock)
-    div(class="mb-3") Còn lại: <b>#{product.stock}</b>
+    div(class="mb-3") Giảm giá: <b>#{product.discountPercentage}%</b>
+  if(product.stock == 0)
+    div(class="mb-3") <b>Hết hàng, vui lòng quay lại sau! </b>
+  else
+    div(class="mb-3") Số lượng: <b>#{product.stock}</b>
   if(product.thumbnail)
     div(class="mb-3") 
       img(src=product.thumbnail style="width: 150px")
 
-  if(product.position)
-    div(class="mb-3") Vị trí: <b>#{product.position}</b>
   if(product.description)
     p #{product.description}
   
