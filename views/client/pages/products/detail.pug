@@ -1,5 +1,6 @@
 extends ../../layouts/default.pug
 include ../../mixins/box-head.pug
+include ../../mixins/alert.pug
 
 block main
   if(product.categoryProduct.title )
@@ -28,19 +29,37 @@ block main
       class="btn btn-warning btn-sm"
       ) Sửa 
 
-  form(
-    action=`/cart/add/${product.id}`
-    method="POST"
-  )
-    input(
-      class="form-control mb-2"
-      type="number"
-      name="quantity"
-      value="1"
-      min="1"
-      max=product.stock
+  if(product.stock > 0)
+    form(
+      action=`/cart/add/${product.id}`
+      method="POST"
     )
-    button(
-      type="submit"
-      class="btn btn-success btn-block"
-    ) Thêm vào giỏ hàng
+      input(
+        class="form-control mb-2"
+        type="number"
+        name="quantity"
+        value="1"
+        min="1"
+        max=product.stock
+      )
+      button(
+        type="submit"
+        class="btn btn-success btn-block"
+      ) Thêm vào giỏ hàng
+  else 
+    +alert-error(5000)
+    form(
+    )
+      input(
+        class="form-control mb-2"
+        type="number"
+        value="0"
+        min="0"
+        max=0
+      )
+      button(
+        btn-cart-outOfStock
+        class="btn btn-success btn-block"
+      ) Thêm vào giỏ hàng
+  
+  script(src="/js/product.js")
