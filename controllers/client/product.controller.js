@@ -12,7 +12,6 @@ module.exports.index = async (req, res) => {
   }).sort({ position: "desc" });
 
   console.log(products)
-  const newProducts = productsHelper.priceNewProducts(products)
 
   res.render("client/pages/products/index.pug", {
     pageTitle: "Danh sách sản phẩm",
