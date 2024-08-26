@@ -3,6 +3,8 @@ const productsHelper = require("../../helpers/products")
 
 module.exports.index = async (req, res) => {
   const keyword = req.query.keyword;
+
+  var newProducts = []
   if (keyword) {
     const keywordRegex = new RegExp(keyword, "i")
 
@@ -12,7 +14,7 @@ module.exports.index = async (req, res) => {
       deleted: false
     })
 
-    const newProducts = productsHelper.priceNewProducts(products)
+    newProducts = productsHelper.priceNewProducts(products)
     console.log(newProducts)
   }
 
