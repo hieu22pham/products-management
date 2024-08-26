@@ -2,10 +2,11 @@ const productRouter = require("./products.route")
 const homeRouter = require("./home.route")
 const searchController = require("./search.route")
 const categoryMiddleware = require("../../middlewares/client/category.middlewares")
-const cartMiddleware = require("../")
+const cartMiddleware = require("../../middlewares/client/cart.middlewares")
 
 module.exports = (app) => {
   app.use(categoryMiddleware.category)
+  app.use(cartMiddleware.cartId)
 
   app.use('/', homeRouter)
 
