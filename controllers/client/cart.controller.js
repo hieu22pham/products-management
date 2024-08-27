@@ -21,5 +21,4 @@ module.exports.addPost = async (req, res) => {
       $push: { products: objectCart }
     })
 
-  res.redirect("back")
 }
