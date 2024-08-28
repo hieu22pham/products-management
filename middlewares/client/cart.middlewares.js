@@ -1,8 +1,7 @@
 const Cart = require("../../models/cart.model")
 
 module.exports.cartId = async (req, res, next) => {
-  console.log(req.cookies.cardId)
-  if (!req.cookies.cardId) {
+  if (!req.cookies.cartId) {
     const cart = new Cart()
     await cart.save()
 
@@ -12,8 +11,7 @@ module.exports.cartId = async (req, res, next) => {
       expires: new Date(Date.now() + expiresTime)
     })
   } else {
-
+    console.log("co")
   }
-
   next()
 }
