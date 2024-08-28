@@ -150,6 +150,7 @@
 .sub-menu ul li:hover>ul {
   display: block;
 }
+
 /* end css header menu san pham*/
 
 /* show alert */
@@ -175,6 +176,19 @@
     right: -100%;
     display: none;
   }
+}
+
+
+[show-alert] [close-alert] {
+  background-color: #ffffffc4;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 /* end show alert */

@@ -4,7 +4,7 @@ include ../../mixins/alert.pug
 
 block main
   +alert-success(2000)
-  
+
   if(product.categoryProduct.title )
     a(href=`/products/${product.categoryProduct.slug}`) #{product.categoryProduct.title}
   if(product.title)
@@ -65,3 +65,4 @@ block main
       ) Thêm vào giỏ hàng
   
   script(src="/js/product.js")
+  script(src="/js/alert.js")

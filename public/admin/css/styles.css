@@ -76,8 +76,6 @@ body {
   }
 }
 
-/* end show alert */
-
 [show-alert] [close-alert] {
   background-color: #ffffffc4;
   display: inline-block;
@@ -89,6 +87,7 @@ body {
   border-radius: 50%;
   cursor: pointer;
 }
+/* end show alert */
 
 .image-preview {
   width: 150px;

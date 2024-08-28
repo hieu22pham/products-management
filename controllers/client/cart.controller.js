@@ -22,6 +22,7 @@ module.exports.addPost = async (req, res) => {
         $push: { products: objectCart }
       }
     )
+    req.flash("success", "Thêm vào giỏ hàng thành công!")
     res.redirect("back")
   } catch (e) {
     console.log(e)
