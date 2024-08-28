@@ -14,7 +14,16 @@ module.exports.addPost = async (req, res) => {
     const existProductInCart = cart.products.find(item => item.product_id)
 
     if (existProductInCart) {
-      const newQuantity = 
+      const newQuantity = quantity + existProductInCart.quantity
+      await Cart.updateOne(
+        {
+          _id: cartId,
+          'products.product_id': productId
+        },
+        {
+          'products.$.quantity': newQuantity
+        }
+      )
     } else {
       const objectCart = {
         product_id: productId,
