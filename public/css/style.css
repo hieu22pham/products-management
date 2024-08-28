@@ -150,7 +150,31 @@
 .sub-menu ul li:hover>ul {
   display: block;
 }
-
-
-
 /* end css header menu san pham*/
+
+/* show alert */
+.info {
+  position: fixed;
+  z-index: 9999;
+  right: 10px;
+  top: 62px;
+}
+
+[show-alert].alert-hidden {
+  animation-name: alert-hidden;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes alert-hidden {
+  from {
+    right: 15px;
+  }
+
+  to {
+    right: -100%;
+    display: none;
+  }
+}
+
+/* end show alert */
