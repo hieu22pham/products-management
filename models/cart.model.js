@@ -5,7 +5,7 @@ mongoose.plugin(slug)
 
 const cartSchema = new mongoose.Schema(
   {
-    user_id: String,
+    _id: String,
     products: [
       {
         product_id: String,

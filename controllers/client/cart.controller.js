@@ -11,11 +11,11 @@ module.exports.addPost = async (req, res) => {
       product_id: productId,
       quantity: quantity
     }
-    console.log(cartId)
-    console.log(productId)
-    console.log(quantity)
+    console.log("card id:", cartId)
+    console.log("productId", productId)
+    console.log("quantity", quantity)
 
-    const cart = await Cart.updateOne({
+    await Cart.updateOne({
       _id: cartId
     },
       {
