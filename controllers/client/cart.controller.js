@@ -22,7 +22,6 @@ module.exports.addPost = async (req, res) => {
         $push: { products: objectCart }
       }
     )
-
     res.redirect("back")
   } catch (e) {
     console.log(e)
