@@ -11,7 +11,9 @@ module.exports.cartId = async (req, res, next) => {
       expires: new Date(Date.now() + expiresTime)
     })
   } else {
-    console.log("co")
+    const cart = await Cart.findOne({
+      _id: req.cookies.cartId
+    })
   }
   next()
 }
