@@ -8,7 +8,10 @@
   object-fit: cover;
 }
 
-.header .inner-menu {}
+.header .inner-menu {
+  position: absolute;
+  right: 10px;
+}
 
 
 .header .inner-menu .flex {

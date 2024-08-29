@@ -196,30 +196,30 @@ module.exports.createPost = async (req, res) => {
 }
 
 module.exports.edit = async (req, res) => {
-    const records = await ProductCategory.find({
-      deleted: false
-    })
+  const records = await ProductCategory.find({
+    deleted: false
+  })
 
-    const category = createTreeHelper.tree(records)
+  const category = createTreeHelper.tree(records)
 
-    const find = {
-      deleted: false,
-      _id: req.params.id
-    }
+  const find = {
+    deleted: false,
+    _id: req.params.id
+  }
 
-    const product = await Product.findOne(find)
-    console.log(product)
+  const product = await Product.findOne(find)
+  console.log(product)
 
-    const categoryName = await ProductCategory.findOne({ _id: product.product_category_id })
-    console.log("tittle:", categoryName.title)
+  const categoryName = await ProductCategory.findOne({ _id: product.product_category_id })
+  console.log("tittle:", categoryName.title)
 
-    res.render("admin/pages/products/edit", {
-      pageTitle: "Chỉnh sửa sản phẩm",
-      product: product,
-      category: category,
-      categoryName: categoryName
-    })
- 
+  res.render("admin/pages/products/edit", {
+    pageTitle: "Chỉnh sửa sản phẩm",
+    product: product,
+    category: category,
+    categoryName: categoryName
+  })
+
 }
 
 module.exports.editPatch = async (req, res) => {
