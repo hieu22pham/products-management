@@ -11,7 +11,7 @@ module.exports.addPost = async (req, res) => {
       _id: cartId
     })
 
-    const existProductInCart = cart.products.find(item => item.product_id)
+    const existProductInCart = cart.products.find(item => item.product_id == productId)
 
     if (existProductInCart) {
       const newQuantity = quantity + existProductInCart.quantity
