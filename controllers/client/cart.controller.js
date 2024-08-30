@@ -1,8 +1,28 @@
 const Cart = require("../../models/cart.model")
+const Product = require("../../models/product.model")
+
 
 module.exports.index = async (req, res) => {
+  const cartId = req.cookies.cartId
+  const cart = await Cart.findOne({
+    _id: cartId
+  })
+
+  if (cart.products.length > 0) {
+    for (const item of cart.products) {
+      const productId = item.product_id
+
+      const productInfo = await Product.findOne({
+        _id: productId
+      })
+
+      item.productInfo = productInfo
+    }
+  }
+
   res.render("client/pages/cart/index", {
     pageTitle: "Giỏ hàng",
+    cartDetail: cart
   })
 }
 
