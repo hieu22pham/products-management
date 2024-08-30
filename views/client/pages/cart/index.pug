@@ -44,5 +44,13 @@ block main
               td 1000$
               td
                 a(
-                  href=""
-                )
+                  href=`/cart/delete/:id`
+                  class="btn btn-danger"
+                ) Xóa
+        h3(class="text-right") Tổng đơn hàng: 1000$
+
+        div(class="text-right mt-3")
+          a(
+            href="/checkout"
+            class="btn btn-success"
+          )
