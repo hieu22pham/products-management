@@ -5,11 +5,14 @@ include ../../mixins/alert.pug
 block main
   +alert-success(2000)
 
-  button(
-    class="btn btn-secondary"
-  ) Trở lại
+  .row 
+    .col-12
+      span(
+        class="btn btn-secondary"
+        button-go-back
+      ) Trở lại
 
-  if(product.categoryProduct.title )
+  if(product.categoryProduct.title)
     a(href=`/products/${product.categoryProduct.slug}`) #{product.categoryProduct.title}
   if(product.title)
     h3 #{product.title}
