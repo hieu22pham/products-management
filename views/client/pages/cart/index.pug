@@ -32,7 +32,7 @@ block main
                     img(src=item.productInfo.thumbnail, width="80px" height="80px")
                   td
                     a(href=`products/detail/${item.productInfo.slug}`) #{item.productInfo.title}
-                  td 500$
+                  td #{item.productInfo.priceNew}$
                   td  
                     input(
                       type="number"

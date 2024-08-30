@@ -1,6 +1,6 @@
 const Cart = require("../../models/cart.model")
 const Product = require("../../models/product.model")
-
+const productsHelper = require("../../helpers/products")
 
 module.exports.index = async (req, res) => {
   const cartId = req.cookies.cartId
@@ -17,6 +17,7 @@ module.exports.index = async (req, res) => {
       })
 
       item.productInfo = productInfo
+      productInfo.priceNew = productsHelper.priceNewProduct(productInfo)
     }
   }
 
