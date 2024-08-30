@@ -16,8 +16,9 @@ module.exports.index = async (req, res) => {
         _id: productId
       })
 
-      item.productInfo = productInfo
       productInfo.priceNew = productsHelper.priceNewProduct(productInfo)
+      item.productInfo = productInfo
+      item.totalPrice = item.quantity * productInfo.priceNew
     }
   }
 

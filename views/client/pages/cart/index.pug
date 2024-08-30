@@ -43,7 +43,7 @@ block main
                       product-id=item.product_id
                       style="width: 60px"
                     )
-                  td 1000$
+                  td #{item.totalPrice}$
                   td
                     a(
                       href=`/cart/delete/${item.product_id}`
