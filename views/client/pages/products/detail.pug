@@ -5,6 +5,10 @@ include ../../mixins/alert.pug
 block main
   +alert-success(2000)
 
+  button(
+    class="btn btn-secondary"
+  ) Trở lại
+
   if(product.categoryProduct.title )
     a(href=`/products/${product.categoryProduct.slug}`) #{product.categoryProduct.title}
   if(product.title)

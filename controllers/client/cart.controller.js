@@ -9,6 +9,7 @@ module.exports.index = async (req, res) => {
   })
 
   if (cart.products.length > 0) {
+    cart.totalFullProduct = 0;
     for (const item of cart.products) {
       const productId = item.product_id
 
@@ -19,6 +20,7 @@ module.exports.index = async (req, res) => {
       productInfo.priceNew = productsHelper.priceNewProduct(productInfo)
       item.productInfo = productInfo
       item.totalPrice = item.quantity * productInfo.priceNew
+      cart.totalFullProduct = cart.totalFullProduct + item.totalPrice
     }
   }
 
