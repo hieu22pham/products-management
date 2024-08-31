@@ -77,14 +77,18 @@ module.exports.addPost = async (req, res) => {
   } catch (e) {
     console.log(e)
   }
-
 }
 
 //GET[delete]
 module.exports.delete = async (req, res) => {
   const productId = req.params.productId
+  const cartId = req.cookies.cartId
 
-
+  await Cart.updateOne({
+    _id: cartId,
+  }, {
+    "$pull": { products: { "product_id": productId } }
+  })
   console.log(productId)
   res.redirect("back")
 }
