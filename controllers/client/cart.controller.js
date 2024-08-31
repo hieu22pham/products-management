@@ -79,3 +79,12 @@ module.exports.addPost = async (req, res) => {
   }
 
 }
+
+//GET[delete]
+module.exports.delete = async (req, res) => {
+  const productId = req.params.productId
+
+
+  console.log(productId)
+  res.redirect("back")
+}
